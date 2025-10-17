@@ -11,9 +11,9 @@ import { ShoppingCart, Store } from "lucide-react";
 const Navbar = () => {
   return (
     <div>
-      <nav className="flex justify-evenly items-center h-18 ">
+      <nav className="flex justify-around items-center h-18 bg-white ">
         <div className="flex items-center">
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <IoReorderThreeOutline className="text-[30px]" />
           </div>
           <div className="logo">
@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="hidden lg:block w-[40%] h-[40px]">
+        <div className="hidden md:block min-w-[40%] h-[40px]">
           <input
             type="text"
             placeholder="Search for Products, Brands and More"
@@ -36,8 +36,8 @@ const Navbar = () => {
                focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
-        <div className="flex items-center gap-[15px] lg:gap-[50px]">
-          <div className="moblie-down lg:hidden ">
+        <div className="flex items-center gap-[15px] sm:gap-[40px]">
+          <div className="moblie-down md:hidden ">
             <RiMobileDownloadLine className="text-[24px]" />
           </div>
           <div className="flex items-center gap-3">
@@ -45,23 +45,25 @@ const Navbar = () => {
               <CgProfile className="text-[26px]" />
             </div>
             <div className="flex items-center gap-1.5">
-              <h1 className="text-[19px] tracking-tight">Login</h1>
+              <h1 className="text-[19px] tracking-tight font-normal">Login</h1>
               <div>
-                <IoIosArrowDown className="text-[14px] hidden lg:block " />
+                <IoIosArrowDown className="text-[14px] hidden sm:block " />
               </div>
             </div>
           </div>
           {/* items-center */}
           <div className=" lg:flex  items-center gap-3">
             <ShoppingCart size={"26px"} />
-            <h1 className="hidden text-[19px] tracking-tight">Cart</h1>
+            <h1 className="hidden text-[20px] tracking-tight xl:block font-normal">Cart</h1>
           </div>
 
-          <div className="hidden lg:flex  items-center gap-3">
+          <div className="hidden md:flex  items-center gap-3">
             <Store size={"26px"} />
-            <h1 className="text-[19px] tracking-tight">Become a Seller</h1>
+            <h1 className="text-[20px] tracking-tight hidden xl:block font-normal">
+              Become a Seller
+            </h1>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden md:block">
             <BsThreeDotsVertical className="text-[20px] " />
           </div>
         </div>
