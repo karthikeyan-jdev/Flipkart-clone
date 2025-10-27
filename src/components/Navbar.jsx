@@ -1,12 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { RiMobileDownloadLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
-import { BsCart3 } from "react-icons/bs";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
-import { PiStorefrontBold, PiStorefrontLight } from "react-icons/pi";
-import { TbBuildingStore } from "react-icons/tb";
 import { ShoppingCart, Store } from "lucide-react";
 const Navbar = () => {
   let navRef = useRef(null);
@@ -25,7 +22,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="flex justify-around lg:justify-center items-center h-14 bg-white gap-5
+      className="flex justify-around xl:justify-center items-center h-14 bg-white gap-5
      fixed top-0 left-0 w-full z-40 transition-shadow duration-300"
     >
       <div className="flex items-center">
@@ -68,7 +65,7 @@ const Navbar = () => {
           </div>
         </div>
         {/* items-center */}
-        <div className=" lg:flex  items-center gap-3">
+        <div className=" xl:flex  items-center gap-3">
           <ShoppingCart size={"26px"} />
           <h1 className="hidden text-[17px] tracking-tight xl:block font-normal">
             Cart

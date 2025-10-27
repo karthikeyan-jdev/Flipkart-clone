@@ -6,6 +6,7 @@ import Ad from "../components/Ad";
 
 const Products = () => {
   return (
+    
     <section>
       <div className=" flex gap-1 !pb-[10px]">
         <div className="w-full xl:w-[80%] md:my-[auto!important]  md:items-center ">

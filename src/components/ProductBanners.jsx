@@ -4,10 +4,10 @@ import { productbBannerGrid } from "../constant/data";
 const ProductBanners = () => {
   return (
     <section className="bg-white ">
-      <div className="grid grid-cols-3 !px-2">
+      <div className="grid grid-cols-3 gap-x-2">
         {productbBannerGrid.map((banner) => {
           return (
-            <div className="!pr-2" key={banner.id}>
+            <div className="" key={banner.id}>
               <img src={banner.imgUrl} alt="banner" />
             </div>
           );

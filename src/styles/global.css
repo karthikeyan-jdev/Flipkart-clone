@@ -12,20 +12,11 @@ body {
   --font-rubik: "Rubik", sans-serif;
   --font-opensans: "Open Sans", sans-serif;
 
-  --breakpoint-sm: 40rem; /* 640px small phones / large phones*/
-  --breakpoint-md: 48rem; /* 768px tablets / portrait*/
-  --breakpoint-lg: 64rem; /* 1024px laptop — main desktop layout breakpoint*/
-  --breakpoint-xl: 80rem; /* 1280px wide desktop*/
-  --breakpoint-2xl: 96rem; /* 1536px very wide
-*/
-}
-
-section {
-  @apply m-auto w-full md:max-w-[950px] lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1500px];
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+  --breakpoint-sm: 640px; /* 640px small phones*/
+  --breakpoint-md: 768px; /*tablets / portrait*/
+  --breakpoint-lg: 992px; /*main desktop layout breakpoint*/
+  --breakpoint-xl: 1190px; /* desktop*/
+  --breakpoint-2xl: 1536px; /* very wide*/
 }
 
 h1,
@@ -35,3 +26,27 @@ h4 {
   @apply font-rubik;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.section-con {
+  @apply m-auto w-full md:max-w-[950px] lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1500px];
+}
+
+.FooterDescription-con {
+  @apply m-auto w-full md:max-w-[970px] lg:max-w-[1250px] xl:max-w-[1460px] 2xl:max-w-[1500px] xl:pt-[50px];
+  padding-bottom: 20px;
+}
+
+.FooterDescription-con p {
+  @apply text-[12px] text-gray-500;
+}
+
+.footer-top a,
+p {
+  @apply text-[10px] xl:text-[11px] font-semibold;
+}
+.footer-buttum a {
+  @apply text-[8px] xl:text-[12px] font-light;
+}
