@@ -1,13 +1,13 @@
 import { ChevronRight } from "lucide-react";
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, } from "react-router-dom";
 
 const SmartPhones = ({ product }) => {
   const navigate = useNavigate();
   return (
     <div
       className="group md:min-w-[160px] lg:min-w-[230px] flex-shrink-0"
-      onClick={() => navigate(`/products/details/${product.id}`)}
+      onClick={() => navigate(`/details/${product.id}`)}
     >
       <div className=" !py-[12px] !mx-[30px] lg:mx-[0px!important] flex items-center md:flex-col">
         <div>

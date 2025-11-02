@@ -1,27 +1,27 @@
 import React from "react";
 import ProductBanners from "../components/ProductBanners";
-import { smartphones } from "../constant/data";
-import SmartPhones from "../components/SmartPhones";
 import Ad from "../components/Ad";
+import { Outlet } from "react-router-dom";
+import ProductList from "./ProductList";
 
 const Products = () => {
   return (
-    
     <section>
-      <div className=" flex gap-1 !pb-[10px]">
-        <div className="w-full xl:w-[80%] md:my-[auto!important]  md:items-center ">
-          <h1 className="text-[20px] xl:text-[26px] font-semibold !p-[16px] bg-white">
+      <div className=" flex gap-1 pb-[10px]">
+        <div className="w-full xl:w-[80%] md:my-[auto]  md:items-center ">
+          <h1 className="text-[20px] xl:text-[26px] font-semibold p-[16px] bg-white">
             Best deal on smartphones
           </h1>
-          <div className="md:flex md:overflow-x-auto scrollbar-hide !py-3 bg-white">
-            {smartphones.map((product) => {
-              return <SmartPhones product={product} key={product.id} />;
-            })}
-          </div>
+          <ProductList />
         </div>
-        <Ad />
+
+        <div className="w-[20%] hidden xl:flex items-center justify-center">
+          <Ad />
+        </div>
       </div>
+
       <ProductBanners />
+      <Outlet />
     </section>
   );
 };

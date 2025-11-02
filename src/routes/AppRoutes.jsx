@@ -3,13 +3,18 @@ import Layout from "../layouts/Layout";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Notfound from "../pages/Notfound";
-import Category from "../components/category";
 import Banner from "../components/Banner";
-import SmartPhones from "../components/SmartPhones";
 import ProductBanners from "../components/ProductBanners";
 import Ad from "../components/Ad";
 import ProductDetails from "../pages/ProductDetails";
 import Wishlist from "../pages/Wishlist";
+import ProductList from "../pages/ProductList";
+import Profile from "../pages/Profile";
+import Login from "../pages/Login";
+import Cart from "../pages/Cart";
+import BecomeASeller from "../pages/BecomeASeller";
+import CategoryDetails from "../pages/CategoryDetails";
+import Category from "../components/Category";
 
 const AppRouter = createBrowserRouter([
   {
@@ -25,6 +30,10 @@ const AppRouter = createBrowserRouter([
         element: <Category />,
       },
       {
+        path: "category/:id",
+        element: <CategoryDetails />,
+      },
+      {
         path: "banner",
         element: <Banner />,
       },
@@ -34,7 +43,7 @@ const AppRouter = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <SmartPhones />,
+            element: <ProductList />,
           },
           {
             path: "ad",
@@ -44,16 +53,31 @@ const AppRouter = createBrowserRouter([
             path: "banners",
             element: <ProductBanners />,
           },
-          {
-            path: "details/:id ",
-            element: <ProductDetails />,
-          },
         ],
-        
       },
-       {
-        path: "whishlist",
+      {
+        path: "details/:id",
+        element: <ProductDetails />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "wishlist",
         element: <Wishlist />,
+      },
+      {
+        path: "becomeASeller",
+        element: <BecomeASeller />,
       },
       {
         path: "*",
