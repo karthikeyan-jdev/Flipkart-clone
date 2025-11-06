@@ -1,12 +1,27 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
+import React from "react";
+import { useLocation } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import NavbarInner from "../components/NavbarInner";
+import Category from "../components/Category";
 
 const Header = () => {
-  return (
-    <div className='pb-14'>
-      <Navbar/>
-    </div>
-  )
-}
+  const location = useLocation();
 
-export default Header
+  const isHomePage = location.pathname === "/";
+
+  return (
+    <>
+      {isHomePage ? (
+        <div className="pb-14">
+          <Navbar />
+        </div>
+      ) : (
+        <div className="pb-15">
+          <NavbarInner />
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Header;

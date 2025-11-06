@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="md:hidden">
           <IoReorderThreeOutline className="text-[30px]" />
         </div>
-        <div>
+        <div onClick={()=>{navigate('/')}}>
           <img
             src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg"
             width="170"
@@ -48,7 +48,7 @@ const Navbar = () => {
           className="w-full h-full bg-gray-100 rounded-[5px]
                pl-[18px] pr-2 text-[15px] text-gray-800
                placeholder:text-[15px] placeholder:text-gray-500
-               focus:outline-none focus:ring-2 focus:ring-blue-400"
+             outline-none "
         />
       </div>
       <div className="flex items-center gap-[15px] sm:gap-[30px]">
@@ -78,7 +78,7 @@ const Navbar = () => {
         </div>
         {/* items-center */}
         <div
-          className=" xl:flex  items-center gap-3"
+          className=" xl:flex  items-center gap-3 "
           onClick={() => navigate("/cart")}
         >
           <ShoppingCart size={"26px"} />

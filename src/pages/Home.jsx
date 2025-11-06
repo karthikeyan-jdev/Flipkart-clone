@@ -5,7 +5,7 @@ import Category from "../components/Category";
 
 const Home = () => {
   return (
-    <div>
+    <div className="section-con ">
       <Category />
       <Banner />
       <Products />

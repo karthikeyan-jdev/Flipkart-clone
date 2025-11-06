@@ -3,18 +3,14 @@ import Layout from "../layouts/Layout";
 import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Notfound from "../pages/Notfound";
-import Banner from "../components/Banner";
-import ProductBanners from "../components/ProductBanners";
-import Ad from "../components/Ad";
 import ProductDetails from "../pages/ProductDetails";
-import Wishlist from "../pages/Wishlist";
 import ProductList from "../pages/ProductList";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Cart from "../pages/Cart";
-import BecomeASeller from "../pages/BecomeASeller";
 import CategoryDetails from "../pages/CategoryDetails";
 import Category from "../components/Category";
+import BecomeASeller from "../pages/BecomeASeller";
 
 const AppRouter = createBrowserRouter([
   {
@@ -34,24 +30,12 @@ const AppRouter = createBrowserRouter([
         element: <CategoryDetails />,
       },
       {
-        path: "banner",
-        element: <Banner />,
-      },
-      {
         path: "products",
         element: <Products />,
         children: [
           {
             index: true,
             element: <ProductList />,
-          },
-          {
-            path: "ad",
-            element: <Ad />,
-          },
-          {
-            path: "banners",
-            element: <ProductBanners />,
           },
         ],
       },
@@ -70,10 +54,6 @@ const AppRouter = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
-      },
-      {
-        path: "wishlist",
-        element: <Wishlist />,
       },
       {
         path: "becomeASeller",

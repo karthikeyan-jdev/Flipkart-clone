@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import { productCategorys } from "../constant/data";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Category = () => {
   const navigate = useNavigate();
+ 
   return (
-    <section className=" ">
-      {/* pt-[55px] */}
       <div className="w-full overflow-x-auto scrollbar-hide md:pt-[10px]">
         <div className="flex justify-center gap-2 xl:gap-6 px-[10px] min-w-max bg-white py-[16px] ">
           {productCategorys.map((product) => (
@@ -19,11 +18,11 @@ const Category = () => {
                 <img
                   src={product.imgUrl}
                   alt={product.title}
-                  className="w-[64px] h-[64px] object-contain"
+                  className="imgRef w-[64px] h-[64px] object-contain"
                 />
               </div>
               <div className="flex justify-center ">
-                <h3 className="text-center text-[14px] mt-1 font-medium ">
+                <h3 className="text-center text-[13px] mt-1 font-bold ">
                   {product.title}
                 </h3>
               </div>
@@ -31,7 +30,6 @@ const Category = () => {
           ))}
         </div>
       </div>
-    </section>
   );
 };
 

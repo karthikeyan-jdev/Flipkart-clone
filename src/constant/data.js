@@ -61,6 +61,45 @@ export const productCategorys = [
   },
 ];
 
+export const innerProductCategorys = [
+  {
+    id: 1,
+    title: "Eletronics",
+  },
+  {
+    id: 2,
+    title: "TV & Applicances",
+  },
+  {
+    id: 3,
+    title: "Men",
+  },
+  {
+    id: 4,
+    title: "Women",
+  },
+  {
+    id: 5,
+    title: "Baby & kids",
+  },
+  {
+    id: 6,
+    title: "Home & Furniture",
+  },
+  {
+    id: 7,
+    title: "Sports, Books & More",
+  },
+  {
+    id: 8,
+    title: "Flights",
+  },
+  {
+    id: 9,
+    title: "Offer Zone",
+  },
+];
+
 export const banners = [
   {
     id: 1,

@@ -9,10 +9,7 @@ const Products = () => {
     <section>
       <div className=" flex gap-1 pb-[10px]">
         <div className="w-full xl:w-[80%] md:my-[auto]  md:items-center ">
-          <h1 className="text-[20px] xl:text-[26px] font-semibold p-[16px] bg-white">
-            Best deal on smartphones
-          </h1>
-          <ProductList />
+          <ProductList headline={"Best deal on smartphones"} />
         </div>
 
         <div className="w-[20%] hidden xl:flex items-center justify-center">
