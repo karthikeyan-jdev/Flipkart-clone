@@ -57,7 +57,7 @@ const ProductDetails = () => {
           </div>
 
           {/* descreption */}
-          <div className="mt-3  flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide ">
+          <div className="mt-3  flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide px-2 ">
             <h1 className="text-[18px]">{product[0].title}</h1>
             <p className="text-gray-500 text-[14px]">
               {" "}

@@ -42,7 +42,7 @@ const ListDetails = () => {
                       />
                     ))}
                 </div>
-                <div className=" relative min-w-[450px] min-h-[200px]">
+                <div className=" relative min-w-[450px] min-h-[200px] ">
                   <div className="lg:border-[1px] lg:border-gray-200 py-[14px] flex justify-center">
                     <img
                       src={data.image}
@@ -65,7 +65,7 @@ const ListDetails = () => {
                 </div>
               </div>
               {/* descreption */}
-              <div className="mt-3  flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide ">
+              <div className="mt-3  flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide px-2">
                 <h1 className="text-[18px]">{data.title}</h1>
                 <p className="text-gray-500 text-[14px]">
                   {" "}
