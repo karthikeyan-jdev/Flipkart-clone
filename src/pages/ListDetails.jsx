@@ -28,7 +28,7 @@ const ListDetails = () => {
         <section className="section-con">
           <div className="flex justify-center">
             <div className="lg:flex  bg-white gap-4 pt-3">
-              {/* images */}
+              {/*muti-images */}
               <div className="flex lg:ml-4 lg:my-2 justify-center h-[560px]">
                 <div className="overflow-y-scroll h-[480px] scrollbar-hide hidden xl:block">
                   {Array(12)
@@ -42,14 +42,16 @@ const ListDetails = () => {
                       />
                     ))}
                 </div>
-                <div className=" relative min-w-[450px] min-h-[200px] ">
+                <div className=" relative min-w-[330px] lg:min-w-[370px]">
+                  {/* img container */}
                   <div className="lg:border-[1px] lg:border-gray-200 py-[14px] flex justify-center">
                     <img
                       src={data.image}
                       alt={data.title}
-                      className="w-[360px] h-[420px]"
+                      className="w-full h-[400px] p-5"
                     />
                   </div>
+                  {/* btn-container */}
                   <div className="grid grid-cols-2 gap-1.5 mt-2 w-full">
                     <button className="text-[18px] bg-amber-300 text-white py-[14px]">
                       ADD TO CART
@@ -65,7 +67,7 @@ const ListDetails = () => {
                 </div>
               </div>
               {/* descreption */}
-              <div className="mt-3  flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide px-2">
+              <div className="flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide ">
                 <h1 className="text-[18px]">{data.title}</h1>
                 <p className="text-gray-500 text-[14px]">
                   {" "}
@@ -137,27 +139,29 @@ const ListDetails = () => {
                   </div>
                 </div>
                 {/* exchage box */}
-                <div className="ml-5">
-                  <h1 className="text-blue-600 pl-1 mt-2 mb-5">
-                    View 6 more offers
-                  </h1>
-                  <div className="flex justify-between w-[400px] border-1 border-gray-300 p-4 bg-blue-50">
-                    <div className="">Buy without Exchange</div>
-                    <div className=""> ₹{data.price}</div>
-                  </div>
-                  <div className=" w-[400px] border-1 border-gray-300 p-3">
-                    <div className="flex justify-between">
-                      <div className="">Buy with Exchange</div>
-                      <div className="">up to ₹9,400 off</div>
+                <div className="">
+                  <div className="max-w-[300px] sm:min-w-[350px] lg:min-w-[400px]">
+                    <h1 className="text-blue-600 pl-1 mt-2 mb-5">
+                      View 6 more offers
+                    </h1>
+                    <div className="flex justify-between w-[400px] border-1 border-gray-300 p-4 bg-blue-50">
+                      <div className="">Buy without Exchange</div>
+                      <div className=""> ₹{data.price}</div>
                     </div>
-                    <div className="flex justify-center datas-center  h-10">
-                      <div className="text-red-500">
-                        {" "}
-                        Enter pincode to check if exchange is available
+                    <div className=" w-[400px] border-1 border-gray-300 p-3">
+                      <div className="flex justify-between">
+                        <div className="">Buy with Exchange</div>
+                        <div className="">up to ₹9,400 off</div>
+                      </div>
+                      <div className="flex justify-center datas-center  h-10">
+                        <div className="text-red-500">
+                          {" "}
+                          Enter pincode to check if exchange is available
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="">
+                  <div className="mt-4">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                     Eius ducimus architecto doloribus beatae officiis non rerum
                     ut dolores laboriosam amet! Accusantium perferendis ipsa

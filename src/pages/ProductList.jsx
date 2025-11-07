@@ -5,7 +5,7 @@ import SmartPhones from "../components/SmartPhones";
 const ProductList = ({ headline }) => {
   return (
     <div className="bg-white">
-      <h1 className="text-[20px] xl:text-[26px] font-semibold p-[16px]">
+      <h1 className="text-[20px] xl:text-[26px] font-semibold p-[16px] overflow-hidden">
         {headline}
       </h1>
       <div className="md:flex md:overflow-x-auto scrollbar-hide py-1 ">

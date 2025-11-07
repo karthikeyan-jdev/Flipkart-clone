@@ -5,6 +5,7 @@
 body {
   @apply bg-gray-100 text-gray-800 font-opensans;
 }
+
 @theme {
   /* google font */
   --font-rubik: "Rubik", sans-serif;
@@ -29,7 +30,7 @@ h4 {
 }
 
 .section-con {
-  @apply m-auto w-full md:max-w-[950px] lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1500px];
+  @apply mx-auto w-full md:max-w-[950px] lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1500px];
 }
 
 .FooterDescription-con {
