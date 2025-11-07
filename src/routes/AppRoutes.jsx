@@ -11,6 +11,7 @@ import Cart from "../pages/Cart";
 import CategoryDetails from "../pages/CategoryDetails";
 import Category from "../components/Category";
 import BecomeASeller from "../pages/BecomeASeller";
+import ListDetails from "../pages/ListDetails";
 
 const AppRouter = createBrowserRouter([
   {
@@ -26,11 +27,11 @@ const AppRouter = createBrowserRouter([
         element: <Category />,
       },
       {
-        path: "category/:id",
+        path: "categorylist", //api
         element: <CategoryDetails />,
       },
       {
-        path: "products",
+        path: "products", //smart phone
         element: <Products />,
         children: [
           {
@@ -40,8 +41,12 @@ const AppRouter = createBrowserRouter([
         ],
       },
       {
-        path: "details/:id",
+        path: "details/:ProductDetailsId", //smartp detailes
         element: <ProductDetails />,
+      },
+      {
+        path: "list/:id", //smartp detailes
+        element: <ListDetails />,
       },
       {
         path: "profile",

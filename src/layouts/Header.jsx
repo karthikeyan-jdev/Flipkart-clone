@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import NavbarInner from "../components/NavbarInner";
-import Category from "../components/Category";
+import InnerCategory from "../components/InnerCategory";
 
 const Header = () => {
   const location = useLocation();
@@ -16,10 +16,11 @@ const Header = () => {
           <Navbar />
         </div>
       ) : (
-        <div className="pb-15">
+        <div className="pb-13">
           <NavbarInner />
         </div>
       )}
+      {!isHomePage && <InnerCategory />}
     </>
   );
 };

@@ -6,16 +6,16 @@ const InnerCategory = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full overflow-x-auto scrollbar-hide ">
-      <div className="flex justify-center gap-2 xl:gap-6 bg-white py-[10px] border-b-1 border-gray-300 shadow-[0_4px_6px_rgba(0,0,0,0.1)]">
+    <div className="w-full overflow-x-auto scrollbar-hide bg-white  border border-gray-200 shadow-[0_4px_6px_rgba(0,0,0,0.1)]">
+      <div className="flex gap-3 justify-around xl:justify-center xl:gap-16  bg-white py-[10px]">
         {innerProductCategorys.map((product) => (
           <div
-            className="min-w-[120px] flex-shrink-0"
+            className=" flex-shrink-0"
             key={product.id}
-            onClick={() => navigate(`/category/${product.id}`)}
+            onClick={() => navigate(`/categoryList`)}
           >
-            <div className="flex justify-center ">
-              <h3 className="text-center text-[13px] font-bold min-w-max">
+            <div className="">
+              <h3 className="text-[12px] xl:text-[13px] font-bold min-w-max">
                 {product.title}
               </h3>
             </div>

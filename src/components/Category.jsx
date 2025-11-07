@@ -12,7 +12,7 @@ const Category = () => {
             <div
               className="min-w-[120px] flex-shrink-0"
               key={product.id}
-              onClick={() => navigate(`/category/${product.id}`)}
+              onClick={() => navigate(`/categorylist`)}
             >
               <div className="flex justify-center">
                 <img

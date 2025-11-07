@@ -1,28 +1,24 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { smartphones } from "../constant/data";
-import { Tag, TicketPercent } from "lucide-react";
-import InnerCategory from "../components/InnerCategory";
-import SmartPhones from "../components/SmartPhones";
+import { Heart, Tag, TicketPercent } from "lucide-react";
 import ProductList from "./ProductList";
 
 const ProductDetails = () => {
-  const { id } = useParams();
-
-  let product = smartphones.filter((product) => product.id === Number(id));
-
+  const { ProductDetailsId } = useParams();
+  let product = smartphones.filter(
+    (product) => product.id === Number(ProductDetailsId)
+  );
   if (!product)
     return (
       <div className="p-10 text-center text-red-600">Product not found </div>
     );
-
   return (
-    <section className="section-con">
-      <InnerCategory />
+    <section className="section-con pt-0.">
       <div className="flex justify-center">
         <div className="lg:flex  bg-white gap-4 pt-3">
-          {/* images */}
-          <div className="flex lg:ml-4 lg:my-2 justify-center h-[560px]">
+          {/*muti-images */}
+          <div className=" flex lg:ml-4 lg:my-2 justify-center h-[560px]">
             <div className="overflow-y-scroll h-[480px] scrollbar-hide hidden xl:block">
               {Array(12)
                 .fill(product[0].imgUrl)
@@ -35,7 +31,8 @@ const ProductDetails = () => {
                   />
                 ))}
             </div>
-            <div className="min-w-[450px] min-h-[200px]">
+            <div className="relative min-w-[450px] min-h-[200px]">
+              {/* img container */}
               <div className="lg:border-[1px] lg:border-gray-200 py-[14px] flex justify-center">
                 <img
                   src={product[0].imgUrl}
@@ -43,6 +40,7 @@ const ProductDetails = () => {
                   className="w-[360px] h-[420px]"
                 />
               </div>
+              {/* btn-container */}
               <div className="grid grid-cols-2 gap-1.5 mt-2 w-full">
                 <button className="text-[18px] bg-amber-300 text-white py-[14px]">
                   ADD TO CART
@@ -51,10 +49,15 @@ const ProductDetails = () => {
                   BUY NOW
                 </button>
               </div>
+              {/* fav-container */}
+              <button className="absolute top-1 right-2 bg-white rounded-full p-1.5 shadow-sm hover:scale-105 transition-transform">
+                <Heart className="fill-gray-200 text-white w-6 h-6 md:w-7 md:h-7" />
+              </button>
             </div>
           </div>
+
           {/* descreption */}
-          <div className="mt-3  flex flex-col gap-[8px] ml-3 h-[560px] overflow-y-auto scrollbar-hide ">
+          <div className="mt-3  flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide ">
             <h1 className="text-[18px]">{product[0].title}</h1>
             <p className="text-gray-500 text-[14px]">
               {" "}
@@ -80,7 +83,7 @@ const ProductDetails = () => {
               <p className="">
                 Special Price{" "}
                 <span className="text-gray-500">
-                  Get extra ₹500 off on 1 item(s)
+                  Get extra ₹500 off on 1 data(s)
                 </span>{" "}
                 <span className="text-blue-600 pl-1">T&C</span>
               </p>
@@ -138,7 +141,7 @@ const ProductDetails = () => {
                   <div className="">Buy with Exchange</div>
                   <div className="">up to ₹9,400 off</div>
                 </div>
-                <div className="flex justify-center items-center  h-10">
+                <div className="flex justify-center datas-center  h-10">
                   <div className="text-red-500">
                     {" "}
                     Enter pincode to check if exchange is available
@@ -214,8 +217,8 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      <div className="py-4">
-        <ProductList headline={"Similer Products"}/>
+      <div className="py-4 hidden lg:block">
+        <ProductList headline={"Similer Products"} />
       </div>
     </section>
   );

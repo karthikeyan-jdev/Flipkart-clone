@@ -7,12 +7,11 @@ import ProductList from "./ProductList";
 const Products = () => {
   return (
     <section>
-      <div className=" flex gap-1 pb-[10px]">
-        <div className="w-full xl:w-[80%] md:my-[auto]  md:items-center ">
+      <div className="pb-[10px] xl:flex xl:gap-3 ">
+        <div className="w-full xl:w-[80%] md:my-[auto]  md:items-center">
           <ProductList headline={"Best deal on smartphones"} />
         </div>
-
-        <div className="w-[20%] hidden xl:flex items-center justify-center">
+        <div className=" hidden xl:w-full xl:block">
           <Ad />
         </div>
       </div>
