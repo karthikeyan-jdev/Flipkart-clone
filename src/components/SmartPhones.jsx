@@ -15,7 +15,7 @@ const SmartPhones = ({ product }) => {
       <div className=" !py-[12px] !mx-[30px] lg:mx-[0px!important] flex items-center md:flex-col">
         <div>
           <img
-            src={product.imgUrl}
+            src={product.image}
             alt={product.title}
             className="h-[48px] md:h-[90px] lg:h-[132px] object-contain transition-transform lg:group-hover:scale-105"
           />

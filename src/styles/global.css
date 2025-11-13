@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
 
-
 body {
   @apply bg-gray-100 text-gray-800 font-opensans;
 }
@@ -16,6 +15,8 @@ body {
   --breakpoint-lg: 992px; /*main desktop layout breakpoint*/
   --breakpoint-xl: 1190px; /* desktop*/
   --breakpoint-2xl: 1536px; /* very wide*/
+
+  --color-primary: #2874f0;
 }
 
 h1,
@@ -49,4 +50,3 @@ h4 {
 .footer-buttum a {
   @apply text-[8px] xl:text-[12px] font-light;
 }
-

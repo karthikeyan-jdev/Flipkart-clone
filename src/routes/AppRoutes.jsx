@@ -12,6 +12,7 @@ import CategoryDetails from "../pages/CategoryDetails";
 import Category from "../components/Category";
 import BecomeASeller from "../pages/BecomeASeller";
 import ListDetails from "../pages/ListDetails";
+import Wishlist from "../pages/Wishlist";
 
 const AppRouter = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist />,
       },
       {
         path: "becomeASeller",

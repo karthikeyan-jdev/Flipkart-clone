@@ -3,22 +3,24 @@ import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/img/logo.png";
 
 const NavbarInner = () => {
   const navigate = useNavigate();
   return (
     <div className=" fixed top-0 left-0 w-full z-40 transition-shadow duration-300">
       {" "}
-      <div className="flex justify-around xl:justify-center items-center gap-5 xl:gap-10 h-13 bg-blue-500 ">
+      <div className="flex justify-around xl:justify-center items-center gap-5 xl:gap-10 h-13 bg-primary">
         <div
           onClick={() => {
             navigate("/");
           }}
         >
           <img
-            src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg"
+            src={logo}
             width="140"
             height="50"
+            className="w-[90px]"
             title="Flipkart"
           ></img>
         </div>
@@ -38,7 +40,9 @@ const NavbarInner = () => {
           </button>
         </div>
         <div className=" text-white" onClick={() => navigate("/becomeASeller")}>
-          <h5 className=" text-[13px] text-center font-semibold">Become a Seller</h5>
+          <h5 className=" text-[13px] text-center font-semibold">
+            Become a Seller
+          </h5>
         </div>
         <div className="flex items-center gap-1 text-white">
           <h5 className=" text-[13px] tracking-tight font-semibold">More</h5>
