@@ -120,7 +120,7 @@ export const banners = [
 
 export const smartphones = [
   {
-    id: 133,
+    id: 1,
     title:
       "OPPO K13x 5G - 6000mAh and 45W SUPERVOOC Charger & AI (Breeze Blue, 128 GB) (6 GB RAM)",
     price: "From 9,499*",

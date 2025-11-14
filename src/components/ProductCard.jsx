@@ -13,7 +13,7 @@ const ProductCard = ({ item }) => {
       className="group flex gap-3 border-gray-200 rounded-md p-3
                shadow-sm hover:shadow-md transition-shadow duration-300 h-[200px] lg:h-[240px]"
       onClick={() => {
-        navigate(`/list/${item.id}`);
+        navigate(`/details/${item.id}`);
       }}
     >
       {/* images + favorite */}

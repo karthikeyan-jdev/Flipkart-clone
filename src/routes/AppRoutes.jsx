@@ -42,13 +42,13 @@ const AppRouter = createBrowserRouter([
         ],
       },
       {
-        path: "details/:ProductDetailsId", //smartp detailes
+        path: "details/:id", //smartp detailes
         element: <ProductDetails />,
       },
-      {
-        path: "list/:id", //smartp detailes
-        element: <ListDetails />,
-      },
+      // {
+      //   path: "list/:id", //api detailes
+      //   element: <ListDetails />,
+      // },
       {
         path: "profile",
         element: <Profile />,

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RiMobileDownloadLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { IoReorderThreeOutline } from "react-icons/io5";
@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   let navRef = useRef(null);
   let navigate = useNavigate();
+  const [menu, setMenu] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,11 @@ const Navbar = () => {
         <div className="md:hidden">
           <IoReorderThreeOutline className="text-[30px]" />
         </div>
-        <div onClick={()=>{navigate('/')}}>
+        <div
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <img
             src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg"
             width="170"
@@ -64,19 +69,47 @@ const Navbar = () => {
               onClick={() => navigate("/profile")}
             />
           </div>
-          <div className="flex items-center gap-1.5">
+          <div className=""></div>
+          <div
+            className="relative flex items-center gap-1.5"
+            onMouseEnter={() => setMenu(true)}
+            onMouseLeave={() => setMenu(false)}
+          >
             <h1
-              className="text-[17px] tracking-tight font-normal"
+              className="text-[17px] tracking-tight font-normal cursor-pointer"
               onClick={() => navigate("/login")}
             >
               Login
             </h1>
-            <div>
-              <IoIosArrowDown className="text-[14px] hidden md:block " />
-            </div>
+            <IoIosArrowDown
+              className={`text-[14px] hidden md:block cursor-pointer transition-transform duration-300 ${
+                menu ? "rotate-180" : "rotate-0"
+              }`}
+            />
+            {/* Dropdown */}
+            <ul
+              className={`absolute top-6.5 right-0 bg-gray-50 px-10 py-3 text-[14px] space-y-2 rounded shadow 
+                          transition-all duration-300 origin-top ${
+                            menu
+                              ? "opacity-100 scale-y-100"
+                              : "opacity-0 scale-y-0 pointer-events-none"
+                          }`}
+            >
+              <li className="hover:text-blue-600 cursor-pointer">
+                <button onClick={() => {navigate("/wishlist")}}>
+                  wishlist
+                </button>
+              </li>
+              <li className="hover:text-blue-600 cursor-pointer">
+                <button onClick={() => {navigate("/profile")}}>
+                  profile
+                </button>
+              </li>
+             
+            </ul>
           </div>
         </div>
-        {/* items-center */}
+        {/* ShoppingCart */}
         <div
           className=" xl:flex  items-center gap-3 "
           onClick={() => navigate("/cart")}
@@ -86,7 +119,7 @@ const Navbar = () => {
             Cart
           </h1>
         </div>
-
+        {/*Become a Seller  */}
         <div
           className="hidden md:flex  items-center gap-3 "
           onClick={() => navigate("/becomeASeller")}

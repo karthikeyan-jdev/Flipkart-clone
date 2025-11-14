@@ -10,7 +10,7 @@ const ProductList = ({ headline }) => {
       </h1>
       <div className="md:flex md:overflow-x-auto scrollbar-hide py-1 ">
         {smartphones.map((product) => {
-          return <SmartPhones product={product} key={product.id} />;
+          return <SmartPhones item={product} key={product.id} />;
         })}
       </div>
     </div>

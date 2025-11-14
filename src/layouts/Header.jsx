@@ -16,12 +16,10 @@ const Header = () => {
       {isHomePage ? (
         <div className="pb-14">
           <Navbar />
-          <button onClick={()=>{navigate("/wishlist")}} className="fixed right-15 z-50">wishlist</button>
         </div>
       ) : (
         <div className="pb-13">
           <NavbarInner />
-          <button onClick={()=>{navigate("/wishlist")}} className="fixed right-15 z-50">wishlist</button>
         </div>
       )}
       {!isHomePage && <InnerCategory />}
