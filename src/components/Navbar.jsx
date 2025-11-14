@@ -4,12 +4,29 @@ import { CgProfile } from "react-icons/cg";
 import { IoReorderThreeOutline } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
-import { ShoppingCart, Store } from "lucide-react";
+import {
+  Bell,
+  CirclePoundSterling,
+  DiamondPlus,
+  Download,
+  Gift,
+  Headset,
+  Heart,
+  LogOut,
+  Megaphone,
+  Package,
+  ShoppingCart,
+  Store,
+  Tag,
+} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useFavorite } from "../context/WishlistContext";
 const Navbar = () => {
   let navRef = useRef(null);
   let navigate = useNavigate();
   const [menu, setMenu] = useState(false);
+  const [threeDitMenu, setThreeDitMenu] = useState(false);
+  const { favorites } = useFavorite();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +42,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      className="flex justify-around xl:justify-center items-center h-14 bg-white gap-5
+      className="flex justify-around xl:justify-center items-center h-14 bg-white gap-3
      fixed top-0 left-0 w-full z-40 transition-shadow duration-300"
     >
       <div className="flex items-center">
@@ -62,14 +79,11 @@ const Navbar = () => {
             <RiMobileDownloadLine className="text-[24px]" />
           </Link>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="profile">
-            <CgProfile
-              className="text-[26px]"
-              onClick={() => navigate("/profile")}
-            />
-          </div>
-          <div className=""></div>
+        <div className="flex items-center gap-3 hover:bg-gray-50 hover:border-[1px] hover:border-gray-200 p-2 rounded-sm">
+          <CgProfile
+            className="text-[26px]"
+            // onClick={() => navigate("/profile")}
+          />
           <div
             className="relative flex items-center gap-1.5"
             onMouseEnter={() => setMenu(true)}
@@ -88,24 +102,55 @@ const Navbar = () => {
             />
             {/* Dropdown */}
             <ul
-              className={`absolute top-6.5 right-0 bg-gray-50 px-10 py-3 text-[14px] space-y-2 rounded shadow 
-                          transition-all duration-300 origin-top ${
+              className={`hidden md:block absolute top-6.5 right-0 bg-white text-[14px] rounded shadow 
+                          transition-all duration-300 ease-out origin-top ${
                             menu
-                              ? "opacity-100 scale-y-100"
-                              : "opacity-0 scale-y-0 pointer-events-none"
+                              ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                              : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
                           }`}
             >
-              <li className="hover:text-blue-600 cursor-pointer">
-                <button onClick={() => {navigate("/wishlist")}}>
-                  wishlist
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <button
+                  onClick={() => {
+                    navigate("/profile");
+                  }}
+                  className="flex gap-2.5 items-center"
+                >
+                  <CgProfile size={18} /> <h4>Profile</h4>
                 </button>
               </li>
-              <li className="hover:text-blue-600 cursor-pointer">
-                <button onClick={() => {navigate("/profile")}}>
-                  profile
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <button
+                  onClick={() => {
+                    navigate("/wishlist");
+                  }}
+                  className="flex gap-2.5 items-center"
+                >
+                  <Heart size={18} /> {` wishlist (${favorites.length})`}
                 </button>
               </li>
-             
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <CirclePoundSterling size={18} color="#d7c23c" />{" "}
+                <h4>SuperCoin Zone</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <DiamondPlus size={18} /> <h4> Flipkart Plue Zone</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Package size={18} /> <h4>Orders</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Tag size={18} /> <h4>Coupons</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Gift size={18} /> <h4>Gift Cards</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Bell size={18} /> <h4>Notification</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <LogOut size={18} /> <h4>Logout</h4>
+              </li>
             </ul>
           </div>
         </div>
@@ -129,8 +174,37 @@ const Navbar = () => {
             Become a Seller
           </h1>
         </div>
-        <div className="hidden md:block pl-[20px]">
-          <BsThreeDotsVertical className="text-[20px] " />
+        <div
+          className="relative hidden md:block pl-[20px]"
+          onMouseEnter={() => setThreeDitMenu(true)}
+          onMouseLeave={() => setThreeDitMenu(false)}
+        >
+          <BsThreeDotsVertical
+            className={`text-[20px] mr-4 ${
+              threeDitMenu ? "rotate-180" : "rotate-0"
+            }`}
+          />
+          <ul
+            className={`absolute top-5 right-1 bg-white text-[14px] overflow-hidden 
+              rounded shadow transition-all duration-300 ease-out origin-top  ${
+                threeDitMenu
+                  ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+              }`}
+          >
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Bell size={18} /> <h5>Notification Preferences</h5>
+            </li>
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Headset size={18} /> <h5>24/7 Customer Care</h5>
+            </li>
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Megaphone size={18} /> <h5> Advertise</h5>
+            </li>
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Download size={18} /> <h5> Download App</h5>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import NavbarInner from "../components/NavbarInner";
 import InnerCategory from "../components/InnerCategory";
@@ -9,7 +9,6 @@ const Header = () => {
 
   const isHomePage = location.pathname === "/";
 
-  const navigate = useNavigate()
 
   return (
     <>
