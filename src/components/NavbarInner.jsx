@@ -1,11 +1,13 @@
-import { ShoppingCart } from "lucide-react";
-import React from "react";
+import { Bell, Download, Headset, Megaphone, ShoppingCart } from "lucide-react";
+import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 
 const NavbarInner = () => {
+  const [menu, setMenu] = useState(false);
+
   const navigate = useNavigate();
   return (
     <div className=" fixed top-0 left-0 w-full z-40 transition-shadow duration-300">
@@ -44,10 +46,43 @@ const NavbarInner = () => {
             Become a Seller
           </h5>
         </div>
-        <div className="flex items-center gap-1 text-white">
-          <h5 className=" text-[13px] tracking-tight font-semibold">More</h5>
-          <IoIosArrowDown className="text-[12px]  " />
+        {/* menu */}
+        <div
+          className="relative flex items-center gap-1 "
+          onMouseEnter={() => setMenu(true)}
+          onMouseLeave={() => setMenu(false)}
+        >
+          <h5 className=" text-[13px] tracking-tight font-semibold text-white">
+            More
+          </h5>
+          <IoIosArrowDown
+            className={`text-[12px] text-white transition-transform duration-300  ${
+              menu ? "rotate-180" : "rotate-0"
+            }`}
+          />
+          <ul
+            className={`absolute top-5 right-0 bg-white text-[14px] overflow-hidden 
+              rounded shadow transition-all duration-300 ease-out origin-top  ${
+                menu
+                  ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+              }`}
+          >
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Bell size={18} /> <h5>Notification Preferences</h5>
+            </li>
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Headset size={18} /> <h5>24/7 Customer Care</h5>
+            </li>
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Megaphone size={18} /> <h5> Advertise</h5>
+            </li>
+            <li className="hover:bg-gray-100 min-w-max cursor-pointer px-6 py-[12px] flex gap-3.5 items-center transition-colors duration-200">
+              <Download size={18} /> <h5> Download App</h5>
+            </li>
+          </ul>
         </div>
+        {/* cart */}
         <div
           className="hidden xl:flex gap-1 items-center text-white "
           onClick={() => navigate("/cart")}
