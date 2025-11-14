@@ -86,7 +86,7 @@ const Navbar = () => {
               <RiMobileDownloadLine className="text-[24px]" />
             </Link>
           </div>
-          <div className="flex items-center gap-3 p-2 rounded-sm hover:bg-gray-50 hover:border-[1px] hover:border-gray-200 ">
+          <div className="flex items-center gap-3 p-2 rounded-sm md:hover:bg-gray-50 md:hover:border-[1px] md:hover:border-gray-200 ">
             <CgProfile
               className="text-[26px]"
               // onClick={() => navigate("/profile")}
