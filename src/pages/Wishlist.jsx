@@ -12,7 +12,7 @@ const Wishlist = () => {
       <section className="flex gap-5 p-5">
         {/* side filter */}
         <div className="w-[40%] lg:w-[25%] h-[100vh] hidden md:block">
-          <div className="flex flex-col gap- ">
+          <div className="flex flex-col gap-4 ">
             <div className="h-15 bg-white">profile</div>
             <div className="h-55 bg-white"> ditails</div>
           </div>

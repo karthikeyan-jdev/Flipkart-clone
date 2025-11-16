@@ -120,7 +120,7 @@ export const banners = [
 
 export const smartphones = [
   {
-    id: 1,
+    id: a1,
     title:
       "OPPO K13x 5G - 6000mAh and 45W SUPERVOOC Charger & AI (Breeze Blue, 128 GB) (6 GB RAM)",
     price: "From 9,499*",
@@ -131,7 +131,7 @@ export const smartphones = [
       "https://rukminim2.flixcart.com/image/240/240/xif0q/mobile/h/q/k/-original-imahfw4vamrf5xhf.jpeg?q=60",
   },
   {
-    id: 2,
+    id: a2,
     title: "MOTOROLA Edge 60 Pro - (Pantone Sparkling Grape, 256 GB)",
     price: "From 9,499*",
     description:
@@ -141,7 +141,7 @@ export const smartphones = [
       "https://rukminim2.flixcart.com/image/240/240/xif0q/mobile/y/w/k/-original-imahfvpcn3j8qwzk.jpeg?q=60",
   },
   {
-    id: 3,
+    id: a3,
     title: "realme P4 5G - (Steel Grey, 128 GB) (6 GB RAM)",
     price: "From 9,499*",
     description: "realme P4 5G smartphone in Steel Grey with 6GB RAM.",
@@ -150,7 +150,7 @@ export const smartphones = [
       "https://rukminim2.flixcart.com/image/240/240/xif0q/mobile/r/4/p/-original-imahf47e6gzt3ggw.jpeg?q=60",
   },
   {
-    id: 4,
+    id: a4,
     title:
       "OPPO K13 5G - 7000mAh and 80W SUPERVOOC Charger In-The-Box (Icy Purple, 128 GB) (8 GB RAM)",
     price: "From 9,499*",
@@ -161,7 +161,7 @@ export const smartphones = [
       "https://rukminim2.flixcart.com/image/240/240/xif0q/mobile/f/k/e/-original-imahbfd4zqn9zazz.jpeg?q=60",
   },
   {
-    id: 5,
+    id: a5,
     title: "Moto G96 5G -(Midnight Blue, 128 GB) (6 GB RAM)",
     price: "From 9,499*",
     description: "Moto G96 5G smartphone in Midnight Blue with 6GB RAM.",
@@ -170,7 +170,7 @@ export const smartphones = [
       "https://rukminim2.flixcart.com/image/240/240/xif0q/mobile/l/x/1/-original-imahdv5ttyhhyhg9.jpeg?q=60",
   },
   {
-    id: 6,
+    id: a6,
     title: "realme P3x 5G -(Midnight Blue, 128 GB) (6 GB RAM)",
     price: "From 9,499*",
     description: "realme P3x 5G smartphone in Midnight Blue with 6GB RAM.",
@@ -179,7 +179,7 @@ export const smartphones = [
       "https://rukminim2.flixcart.com/image/240/240/xif0q/mobile/j/n/1/-original-imah9gtmya9qhqse.jpeg?q=60",
   },
   {
-    id: 7,
+    id: a7,
     title:
       "Samsung Galaxy A3 - 6000mAh and 45W SUPERVOOC Charger & AI (Breeze Blue, 128 GB) (6 GB RAM)",
     price: "From 9,499*",
@@ -190,7 +190,7 @@ export const smartphones = [
       "https://rukminim2.flixcart.com/image/240/240/xif0q/mobile/o/j/d/-original-imahgy25zuwqzzye.jpeg?q=60",
   },
   {
-    id: 8,
+    id: a8,
     title:
       "realme P4 Pro 5G - 6000mAh and 45W SUPERVOOC Charger & AI (Breeze Blue, 128 GB) (6 GB RAM)",
     price: "From 9,499*",
