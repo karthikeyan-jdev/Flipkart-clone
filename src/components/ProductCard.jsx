@@ -56,7 +56,11 @@ const ProductCard = ({ item }) => {
         <div className="w-[24%] lg:w-[35%]">
           <h1 className="font-semibold py-4">
             ₹
-            {typeof item.price === "number" ? item.price : item.price ? item.price.split(" ")[1].split("*")[0].trim(): "—"}
+            {typeof item.price === "number"
+              ? item.price
+              : item.price
+              ? item.price.split(" ")[1].split("*")[0].trim()
+              : "—"}
           </h1>
         </div>
       </div>

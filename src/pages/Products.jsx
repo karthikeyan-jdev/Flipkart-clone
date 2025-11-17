@@ -2,7 +2,7 @@ import React from "react";
 import ProductBanners from "../components/ProductBanners";
 import Ad from "../components/Ad";
 import { Outlet } from "react-router-dom";
-import ProductList from "./ProductList";
+import ProductList from "./SmartPhonesList";
 
 const Products = () => {
   return (

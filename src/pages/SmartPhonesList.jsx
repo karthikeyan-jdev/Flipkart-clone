@@ -1,8 +1,8 @@
 import React from "react";
 import { smartphones } from "../constant/data";
-import SmartPhones from "../components/SmartPhones";
+import SmartPhonesCard from "../components/SmartPhonesCard";
 
-const ProductList = ({ headline }) => {
+const SmartPhonesList = ({ headline }) => {
   return (
     <div className="bg-white">
       <h1 className="text-[20px] xl:text-[26px] font-semibold p-[16px] overflow-hidden">
@@ -10,11 +10,11 @@ const ProductList = ({ headline }) => {
       </h1>
       <div className="md:flex md:overflow-x-auto scrollbar-hide py-1 ">
         {smartphones.map((product) => {
-          return <SmartPhones item={product} key={product.id} />;
+          return <SmartPhonesCard item={product} key={product.id} />;
         })}
       </div>
     </div>
   );
 };
 
-export default ProductList;
+export default SmartPhonesList;

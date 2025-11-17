@@ -6,6 +6,7 @@ const useFetchApi = (url) => {
   const [error, setError] = useState("");
   useEffect(() => {
     let ismounted = true;
+    
     setData(null);
     setLoading(true);
     setError("");

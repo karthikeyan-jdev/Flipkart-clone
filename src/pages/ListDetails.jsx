@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useFetchApi from "../hooks/useFetchApi";
 import { useParams } from "react-router-dom";
 import { Heart, Tag, TicketPercent } from "lucide-react";
-import ProductList from "./ProductList";
+import ProductList from "./SmartPhonesList";
 import Loading from "../components/Loading";
 import { useFavorite } from "../context/WishlistContext";
 
@@ -53,7 +53,7 @@ const ListDetails = () => {
                         src={data.image}
                         alt={data.title}
                         className="w-full h-[400px] p-5"
-                      /> 
+                      />
                     </div>
                     {/* btn-container */}
                     <div className="grid grid-cols-2 gap-1.5 mt-2 w-full">

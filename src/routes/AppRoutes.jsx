@@ -4,15 +4,15 @@ import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Notfound from "../pages/Notfound";
 import ProductDetails from "../pages/ProductDetails";
-import ProductList from "../pages/ProductList";
+import ProductList from "../pages/SmartPhonesList";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Cart from "../pages/Cart";
 import CategoryDetails from "../pages/CategoryDetails";
 import Category from "../components/Category";
 import BecomeASeller from "../pages/BecomeASeller";
-import ListDetails from "../pages/ListDetails";
 import Wishlist from "../pages/Wishlist";
+import SmartPhonesList from "../pages/SmartPhonesList";
 
 const AppRouter = createBrowserRouter([
   {
@@ -37,18 +37,15 @@ const AppRouter = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <ProductList />,
+            element: <SmartPhonesList />,
           },
         ],
       },
       {
-        path: "details/:id", //smartp detailes
+        path: "details/:id",
         element: <ProductDetails />,
       },
-      // {
-      //   path: "list/:id", //api detailes
-      //   element: <ListDetails />,
-      // },
+
       {
         path: "profile",
         element: <Profile />,

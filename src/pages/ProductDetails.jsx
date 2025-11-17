@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { smartphones } from "../constant/data";
 import { Heart, Tag, TicketPercent } from "lucide-react";
-import ProductList from "./ProductList";
+import ProductList from "./SmartPhonesList";
 import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
@@ -26,7 +26,6 @@ const ProductDetails = () => {
   }, [id]);
 
   if (error) return <p className="text-red-500">{error}</p>;
-  // if (loading) return <p className="text-red-500">loading...</p>;
 
   return (
     <>

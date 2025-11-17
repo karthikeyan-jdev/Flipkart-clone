@@ -2,7 +2,7 @@ import { ChevronRight } from "lucide-react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const SmartPhones = ({ item }) => {
+const SmartPhonesCard = ({ item }) => {
   const navigate = useNavigate();
 
   if (!item) return null;
@@ -41,4 +41,4 @@ const SmartPhones = ({ item }) => {
   );
 };
 
-export default SmartPhones;
+export default SmartPhonesCard;
