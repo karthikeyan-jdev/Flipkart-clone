@@ -24,7 +24,7 @@ const AppRouter = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "category",
+        path: "category", 
         element: <Category />,
       },
       {

@@ -21,16 +21,18 @@ export const CartProvider = ({ children }) => {
     });
   };
 
+
+  
+    // ✅ Change quantity
+    const updateQty = (id, qty) => {
+      setCart((prev) =>
+        prev.map((item) => (item.id === id ? { ...item, qty } : item))
+      );
+    };
+
   // ✅ Remove item
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
-  };
-
-  // ✅ Change quantity
-  const updateQty = (id, qty) => {
-    setCart((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, qty } : item))
-    );
   };
 
   // ✅ Clear all

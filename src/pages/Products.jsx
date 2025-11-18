@@ -1,7 +1,6 @@
 import React from "react";
 import ProductBanners from "../components/ProductBanners";
 import Ad from "../components/Ad";
-import { Outlet } from "react-router-dom";
 import ProductList from "./SmartPhonesList";
 
 const Products = () => {
@@ -15,9 +14,7 @@ const Products = () => {
           <Ad />
         </div>
       </div>
-
       <ProductBanners />
-      <Outlet />
     </section>
   );
 };

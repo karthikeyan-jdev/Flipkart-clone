@@ -1,6 +1,6 @@
 import React from "react";
 import { smartphones } from "../constant/data";
-import SmartPhonesCard from "../components/SmartPhonesCard";
+import SmartPhonesCard from "../components/SmartPhonescard";
 
 const SmartPhonesList = ({ headline }) => {
   return (

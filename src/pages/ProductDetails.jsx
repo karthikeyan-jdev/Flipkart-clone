@@ -1,19 +1,24 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { smartphones } from "../constant/data";
 import { Heart, Tag, TicketPercent } from "lucide-react";
 import ProductList from "./SmartPhonesList";
 import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
+import { useCart } from "../context/CardContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const { data, error, loading, status } = useFetchApi(
     `https://fakestoreapi.com/products/${id}`
   );
   const { isFavorite, toggleFavorite } = useFavorite();
+
+  const { addToCart } = useCart();
 
   let localProduct = smartphones.find((p) => p.id === Number(id));
 
@@ -61,7 +66,14 @@ const ProductDetails = () => {
                     </div>
                     {/* btn-container */}
                     <div className="grid grid-cols-2 gap-1.5 mt-2 w-full">
-                      <button className="text-[18px] bg-amber-300 text-white py-[14px]">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart(displayProduct);
+                          navigate("/cart");
+                        }}
+                        className="text-[18px] bg-amber-300 text-white py-[14px]"
+                      >
                         ADD TO CART
                       </button>
                       <button className="text-[18px] bg-orange-500 text-white py-[8px]">
