@@ -6,6 +6,7 @@ import { useFavorite } from "../context/WishlistContext";
 const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
+
   const { isFavorite, toggleFavorite } = useFavorite();
 
   return (
@@ -41,7 +42,7 @@ const ProductCard = ({ item }) => {
       {/* descripction */}
       <div className="w-full flex lg:gap-1 ">
         <div className="w-full flex flex-col gap-1">
-          <h5 className="line-clamp-2  font-[550] text-[14px] lg:text-[18px] group-hover:text-blue-500 transition-colors duration-300">
+          <h5 className="line-clamp-1  font-[550] text-[14px] lg:text-[18px] group-hover:text-blue-500 transition-colors duration-300">
             {item.title}
           </h5>
           <p className="text-gray-500 text-[12px] lg:text-[14px] font-semibold">

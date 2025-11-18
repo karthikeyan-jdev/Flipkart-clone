@@ -1,9 +1,106 @@
-import React from 'react'
+import { CirclePoundSterling, Heart } from "lucide-react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CardContext";
 
-const CartProductCard = () => {
+const CardProductCard = ({ item }) => {
+  const navigate = useNavigate();
+
+  const { removeFromCart, updateQty, clearCart } = useCart();
+
   return (
-    <div>CartProductCard</div>
-  )
-}
+    <div className="group shadow-sm hover:shadow-md transition-shadow duration-300 ">
+      <div
+        className=" flex gap-2 border-gray-200 rounded-md p-2 md:p-5"
+        onClick={() => {
+          navigate(`/details/${item.id}`);
+        }}
+      >
+        {/* images*/}
+        <div className="w-[110px] xl:min-w-[120px] sm:mx-2  object-contain">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full  object-contain"
+          />
+        </div>
 
-export default CartProductCard
+        {/* descripction */}
+        <div className="w-full flex flex-col gap-2 lg:flex-row lg:gap-5">
+          {/* product details */}
+          <div className="">
+            <h5 className="line-clamp-1  font-[550] text-[12px] lg:text-[16px] group-hover:text-blue-500 transition-colors duration-300">
+              {item.title}
+            </h5>
+            <p className="line-clamp-1 text-[10px]">{item.description}</p>
+            <p className="text-[10px] sm:text-[12px]  sm:py-2">
+              Seller: ABCRetail
+            </p>
+            <h1 className="font-semibold mb-1">
+              ₹
+              {typeof item.price === "number"
+                ? item.price
+                : item.price
+                ? item.price.split(" ")[1].split("*")[0].trim()
+                : "—"}
+              <span className="pl-2 text-gray-500 text-[13px]">40% Off</span>
+            </h1>
+            <div className="">
+              <p className="text-[12px]">+ ₹149 Protect Promise Fee </p>
+
+              <p className="text-[12px] flex gap-1.5 items-center">
+                `Or Pay ₹
+                {typeof item.price === "number"
+                  ? item.price
+                  : item.price
+                  ? item.price.split(" ")[1].split("*")[0].trim()
+                  : "—"}{" "}
+                + 100 <CirclePoundSterling size={12} color="orange" />{" "}
+              </p>
+            </div>
+          </div>
+          {/* delivery date */}
+          <div className="xl:px-5">
+            <p className="text-[12px] min-w-max">Delivery by Fri Nov 21</p>
+          </div>
+        </div>
+      </div>
+      {/* qty & Remove btn */}
+      <div className="flex items-center pt-2 pb-6">
+        <div className="flex justify-center items-center gap-1.5 w-[112px] sm:w-[124px] lg:w-[112px]  xl:w-[166px]  ">
+          <button
+            onClick={() => {
+              updateQty(item.id, item.qty - 1);
+            }}
+            className="flex  justify-center items-center h-6 px-2 border-1 border-gray-300 rounded-2xl"
+          >
+            -
+          </button>
+          <div className="border-1 border-gray-300 px-3.5 text-[12px]">
+            {item.qty}
+          </div>
+          <button
+            onClick={() => {
+              updateQty(item.id, item.qty + 1);
+            }}
+            className="flex items-center justify-center h-6 px-1.5 border-1 border-gray-300 rounded-2xl"
+          >
+            +
+          </button>
+        </div>
+        <div>
+          <button
+            onClick={() => {
+              removeFromCart(item.id);
+            }}
+            className="font-semibold text-gray-600 "
+          >
+            REMOVE
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CardProductCard;
