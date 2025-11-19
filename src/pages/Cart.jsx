@@ -13,7 +13,7 @@ const Cart = () => {
     <div>
       <section className="flex flex-col items-center md:flex-row md:items-start md:justify-center  gap-5 p-2.5 md:p-3">
         {/* main contant */}
-        <div className="flex flex-col  gap-2.5 w-min-[380px] md:min-w-[400px] lg:min-w-[600px] xl:min-w-[800px]  ">
+        <div className="flex flex-col  gap-2.5">
           {hasItems && (
             <div className="flex justify-between items-center bg-white ">
               {" "}
@@ -27,7 +27,7 @@ const Cart = () => {
           )}
 
           {hasItems ? (
-              <div className="bg-white w-full h-full" >
+              <div className="bg-white w-full sm:min-w-[640px] " >
                 {cart.map((item) => (
                   <CartProductCard key={item.id} item={item} />
                 ))}
@@ -49,7 +49,7 @@ const Cart = () => {
         {/* price details */}
         <div className="bg-white">
           {hasItems && (
-            <h1 className="w-full md:min-w-[300px] lg:min-w-[400px]">
+            <h1 className="w-full md:min-w-[220px] lg:min-w-[280px]">
               PRICE DETAILS
             </h1>
           )}

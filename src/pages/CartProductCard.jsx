@@ -9,19 +9,19 @@ const CardProductCard = ({ item }) => {
   const { removeFromCart, updateQty, clearCart } = useCart();
 
   return (
-    <div className="group shadow-sm hover:shadow-md transition-shadow duration-300 ">
+    <div className="group shadow-sm hover:shadow-md transition-shadow duration-300">
       <div
-        className=" flex gap-2 border-gray-200 rounded-md p-2 md:p-5"
+        className=" flex border-gray-200 rounded-md p-2 md:p-5"
         onClick={() => {
           navigate(`/details/${item.id}`);
         }}
       >
         {/* images*/}
-        <div className="w-[110px] xl:min-w-[120px] sm:mx-2  object-contain">
+        <div className="w-[140px] min-w-[22%] h-[100px] lg:h-[120px] xl:h-[140px] ">
           <img
             src={item.image}
             alt={item.title}
-            className="w-full h-full  object-contain"
+            className="w-[100%] h-[100%] object-contain"
           />
         </div>
 
@@ -67,7 +67,7 @@ const CardProductCard = ({ item }) => {
       </div>
       {/* qty & Remove btn */}
       <div className="flex items-center pt-2 pb-6">
-        <div className="flex justify-center items-center gap-1.5 w-[112px] sm:w-[124px] lg:w-[112px]  xl:w-[166px]  ">
+        <div className="flex justify-center items-center gap-1.5 w-[160px] min-w-[25%]  ">
           <button
             onClick={() => {
               updateQty(item.id, item.qty - 1);
