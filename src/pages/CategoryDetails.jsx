@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import useFetchApi from "../hooks/useFetchApi";
 import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";
+import { IoIosArrowDown } from "react-icons/io";
+import { innerProductCategorys } from "../constant/data";
 
 const CategoryDetails = () => {
   const { data, error, loading } = useFetchApi(
@@ -13,8 +15,15 @@ const CategoryDetails = () => {
   return (
     <section className="flex gap-2 p-2">
       {/* side filter */}
-      <div className="w-[40%] lg:w-[25%] h-[100vh] bg-white hidden md:block">
-        side filter
+      <div className="w-[40%] lg:w-[25%] h-[75vh] bg-white hidden md:block">
+        {innerProductCategorys.map((list) => {
+          return (
+            <div className="flex items-center gap-1 p-5">
+              <h5 className="font-[550]">{list.title}</h5>
+              <IoIosArrowDown />
+            </div>
+          );
+        })}
       </div>
       {/* main contant */}
       <div className="w-full bg-white">
