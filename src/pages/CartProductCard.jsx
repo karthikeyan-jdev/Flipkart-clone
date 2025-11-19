@@ -1,4 +1,4 @@
-import { CirclePoundSterling, Heart } from "lucide-react";
+import { CirclePoundSterling } from "lucide-react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CardContext";
@@ -6,7 +6,7 @@ import { useCart } from "../context/CardContext";
 const CardProductCard = ({ item }) => {
   const navigate = useNavigate();
 
-  const { removeFromCart, updateQty, } = useCart();
+  const { removeFromCart, updateQty } = useCart();
 
   return (
     <div className="group shadow-sm hover:shadow-md transition-shadow duration-300">
