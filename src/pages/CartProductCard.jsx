@@ -11,7 +11,7 @@ const CardProductCard = ({ item }) => {
   return (
     <div className="group shadow-sm hover:shadow-md transition-shadow duration-300">
       <div
-        className=" flex border-gray-200 rounded-md p-2 md:p-5"
+        className=" flex gap-2 border-gray-200 rounded-md p-2 md:p-5"
         onClick={() => {
           navigate(`/details/${item.id}`);
         }}
@@ -70,9 +70,11 @@ const CardProductCard = ({ item }) => {
         <div className="flex justify-center items-center gap-1.5 w-[160px] min-w-[25%]  ">
           <button
             onClick={() => {
-              updateQty(item.id, item.qty - 1);
+              item.qty > 1 && updateQty(item.id, item.qty - 1);
             }}
-            className="flex  justify-center items-center h-6 px-2 border-1 border-gray-300 rounded-2xl"
+            className={`flex  justify-center items-center h-6 px-2 border-1 border-gray-300 rounded-2xl ${
+              item.qty === 1 && "bg-gray-200 text-gray-400" 
+            }`}
           >
             -
           </button>

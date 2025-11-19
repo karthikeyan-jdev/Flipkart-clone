@@ -25,7 +25,9 @@ h3,
 h4 {
   @apply font-rubik;
 }
-
+button{
+  @apply cursor-pointer
+}
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

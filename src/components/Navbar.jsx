@@ -112,10 +112,10 @@ const Navbar = () => {
                 onMouseEnter={() => setMenu(true)}
                 onMouseLeave={() => setMenu(false)}
                 className={` absolute top-2 left-0 h-[120vh] md:h-auto md:top-5 md:left-1  bg-white text-[14px] rounded shadow 
-                          transition-all duration-300 ease-out origin-top ${
+                          transition-all duration-200 sm:duration-300 ease-out origin-left sm:origin-top ${
                             menu
                               ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
-                              : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
+                              : "opacity-0 scale-x-95 -translate-x-2 md:scale-y-95 md:-translate-y-2 pointer-events-none"
                           }`}
               >
                 <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
