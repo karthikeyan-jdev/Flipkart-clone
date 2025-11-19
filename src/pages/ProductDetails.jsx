@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { smartphones } from "../constant/data";
 import { Heart, Tag, TicketPercent } from "lucide-react";
-import ProductList from "./SmartPhonesList";
 import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
 import { useCart } from "../context/CardContext";
+import SmartPhonesList from "./SmartPhonesList";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -288,7 +288,7 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="py-4 hidden lg:block">
-              <ProductList headline={"Similer Products"} />
+              <SmartPhonesList headline={"Similer Products"} />
             </div>
           </section>
         )
