@@ -27,13 +27,11 @@ const Cart = () => {
           )}
 
           {hasItems ? (
-            <div className="">
-              <div className="bg-white">
+              <div className="bg-white w-full h-full" >
                 {cart.map((item) => (
                   <CartProductCard key={item.id} item={item} />
                 ))}
               </div>
-            </div>
           ) : (
             <div className=" flex flex-col justify-center items-center gap-3 h-[50%]">
               <p>your cart is empty</p>

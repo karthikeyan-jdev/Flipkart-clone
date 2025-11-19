@@ -26,7 +26,7 @@ const CardProductCard = ({ item }) => {
         </div>
 
         {/* descripction */}
-        <div className="w-full flex flex-col gap-2 lg:flex-row lg:gap-5">
+        <div className="max-w-[650px] flex flex-col gap-2 lg:flex-row lg:gap-5">
           {/* product details */}
           <div className="">
             <h5 className="line-clamp-1  font-[550] text-[12px] lg:text-[16px] group-hover:text-blue-500 transition-colors duration-300">
