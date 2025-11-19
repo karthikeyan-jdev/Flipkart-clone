@@ -6,7 +6,7 @@ import { useCart } from "../context/CardContext";
 const CardProductCard = ({ item }) => {
   const navigate = useNavigate();
 
-  const { removeFromCart, updateQty, clearCart } = useCart();
+  const { removeFromCart, updateQty, } = useCart();
 
   return (
     <div className="group shadow-sm hover:shadow-md transition-shadow duration-300">
