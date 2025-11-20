@@ -15,10 +15,10 @@ const CategoryDetails = () => {
   return (
     <section className="flex gap-2 p-2">
       {/* side filter */}
-      <div className="w-[40%] lg:w-[25%] h-[75vh] bg-white hidden md:block">
-        {innerProductCategorys.map((list) => {
+      <div className="w-[40%] lg:w-[25%] h-fit bg-white hidden md:block">
+        {innerProductCategorys.map((list,i) => {
           return (
-            <div className="flex items-center gap-1 p-5">
+            <div key={i}  className="flex items-center gap-1 p-5">
               <h5 className="font-[550]">{list.title}</h5>
               <IoIosArrowDown />
             </div>

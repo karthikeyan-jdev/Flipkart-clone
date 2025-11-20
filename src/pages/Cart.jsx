@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CardContext";
 import CartProductCard from "./CartProductCard";
+import emptyCart from "../assets/img/emptyCart.png";
 
 const Cart = () => {
   const { cart } = useCart();
@@ -36,7 +37,7 @@ const Cart = () => {
             <div className="flex flex-col gap-5 sm:min-w-[300px] ">
               {/*price details */}
               <div className="bg-white p-5">
-                <h1 className=" text-gray-400 ">PRICE DETAILS</h1>
+                <h1 className=" text-gray-400 pb-3">PRICE DETAILS</h1>
                 <div className="">
                   <div className="flex justify-between">
                     <h4>Price ({cart.length})</h4>
@@ -54,7 +55,7 @@ const Cart = () => {
                     <h4>total Amount </h4>
                     <p>$ 90,000</p>
                   </div>
-                  <h1>You Will Save $59,944 on this order</h1>
+                  <h1 className="text-center p-1 pt-3.5 text-green-700"> You Will Save $59,944 on this order</h1>
                 </div>
               </div>
               {/* text */}
@@ -65,10 +66,14 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div className=" flex flex-col justify-center items-center gap-3 h-[50%]">
-          <p>your cart is empty</p>
+        <div className=" flex flex-col justify-center items-center gap-3 h-[78vh] bg-white">
+          <div className="pr-2.5">
+            <img src={emptyCart} alt="your cart is empty " />
+          </div>
+          <h6 className="font-semibold text-xl">your cart is empty!</h6>
+          <p className="text-[13px]">Add items to it now.</p>
           <button
-            className="text-[12px] bg-amber-300 text-white py-2 px-3.5 lg:py-2.5 lg:px-5 rounded-sm"
+            className="text-[12px] bg-primary text-white py-2 px-3.5 lg:py-2.5 lg:px-5 rounded-sm"
             onClick={() => {
               navigate("/categorylist");
             }}

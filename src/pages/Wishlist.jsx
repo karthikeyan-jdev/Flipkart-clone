@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ProductCard from "../components/ProductCard";
 import { useFavorite } from "../context/WishlistContext";
 import { useNavigate } from "react-router-dom";
+import emptyWishlist from "../assets/img/emptyWishlist.png";
 
 const Wishlist = () => {
   const { favorites } = useFavorite();
@@ -9,22 +10,33 @@ const Wishlist = () => {
 
   return (
     <div>
-      <section className="flex gap-5 p-5">
+      <section className="flex gap-5  sm:p-5">
         {/* side filter */}
-        <div className="w-[40%] lg:w-[25%] h-[100vh] hidden md:block">
-          <div className="flex flex-col gap-4 ">
-            <div className="h-15 bg-white">profile</div>
-            <div className="h-55 bg-white"> ditails</div>
-          </div>
+        <div className="space-y-2 w-[40%] lg:w-[25%] h-fit hidden md:block">
+          <div className="h-15 bg-white">profile</div>
+          <div className="h-55 bg-white"> ditails</div>
         </div>
         {/* main contant */}
-        <div className="w-full bg-white h-screen">
-          <h5 className="font-semibold text-[18px] p-5 pb-3 lg:text-xl lg:p-7 lg:pb-5">My Wishlist ({favorites.length})</h5>
+        <div className="w-full h-[100vh] bg-white ">
+          <h5 className="font-semibold text-[18px] p-5 pb-3 lg:text-xl lg:p-7 lg:pb-5">
+            My Wishlist ({favorites.length})
+          </h5>
           {favorites.length == 0 ? (
-            <div className="flex flex-col justify-center items-center h-[30vh] gap-2">
-              <p>no favorite yet</p>
+            <div className=" flex flex-col justify-center items-center gap-3 h-[60vh] bg-white">
+              <div className="">
+                <img
+                  src={emptyWishlist}
+                  alt="your cart is empty "
+                  className=""
+                />
+              </div>
+              <h1 className="font-bold text-xl"> Empty Wishlist</h1>
+              <h3 className="text-[14px]">
+                {" "}
+                You have no items in your wishlist. Start adding!
+              </h3>
               <button
-                className="text-[18px] bg-amber-300 text-white py-[10px] px-5 rounded-sm"
+                className="text-[12px] bg-primary text-white py-2 px-3.5 lg:py-2.5 lg:px-5 rounded-sm"
                 onClick={() => {
                   navigate("/categorylist");
                 }}
@@ -33,8 +45,11 @@ const Wishlist = () => {
               </button>{" "}
             </div>
           ) : (
-            
-            favorites.map((item) => <ProductCard key={item.id} item={item} />)
+            <div className="bg-white">
+              {favorites.map((item) => (
+                <ProductCard key={item.id} item={item} />
+              ))}
+            </div>
           )}
         </div>
       </section>
