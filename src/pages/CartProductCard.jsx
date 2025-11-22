@@ -95,7 +95,7 @@ const CardProductCard = ({ item }) => {
             onClick={() => {
               removeFromCart(item.id);
             }}
-            className="font-semibold text-gray-600 "
+            className="font-semibold text-gray-500 hover:text-gray-700"
           >
             REMOVE
           </button>

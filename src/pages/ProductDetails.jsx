@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { smartphones } from "../constant/data";
-import { Heart, Tag, TicketPercent } from "lucide-react";
+import { Heart, ShieldCheck, Tag, TicketPercent } from "lucide-react";
 import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
@@ -13,7 +13,7 @@ const ProductDetails = () => {
 
   const navigate = useNavigate();
 
-  const { data, error, loading, status } = useFetchApi(
+  const { data, error, loading } = useFetchApi(
     `https://fakestoreapi.com/products/${id}`
   );
   const { isFavorite, toggleFavorite } = useFavorite();
@@ -212,76 +212,12 @@ const ProductDetails = () => {
                         </div>
                       </div>
                     </div>
-                    <div className=" mt-4">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Eius ducimus architecto doloribus beatae officiis non
-                      rerum ut dolores laboriosam amet! Accusantium perferendis
-                      ipsa excepturi sit obcaecati aliquam possimus consequuntur
-                      animi dolorum velit debitis asperiores, voluptas maxime
-                      magnam quod eos facilis. Consequatur aliquam nostrum cum
-                      tempora incidunt voluptatum doloremque iusto facere vel,
-                      corporis qui, sapiente, sint veniam fugiat illo
-                      voluptatibus aperiam veritatis natus ea praesentium beatae
-                      obcaecati assumenda. Distinctio, cum! Ipsum est, vel,
-                      iure, perspiciatis labore libero odit neque voluptates nam
-                      tempora laborum provident alias totam. Molestiae, fugiat.
-                      Deleniti aut dolore mollitia, doloremque ipsum labore
-                      eligendi perferendis iure saepe similique quod rem minima
-                      nemo autem quisquam, ab at? Eaque eius sapiente dolore
-                      doloremque voluptates corporis vitae quibusdam provident
-                      consequatur laudantium minima veniam aliquid ratione unde
-                      deserunt, assumenda voluptas iure fugit dignissimos
-                      similique ea vel. Quam totam nihil, assumenda maiores
-                      beatae eius eaque praesentium. Iure molestias eligendi,
-                      asperiores at illum vel nam cupiditate doloribus fugit
-                      repellendus est, dolorum voluptates adipisci nihil laborum
-                      velit deleniti cum perspiciatis nobis ipsa omnis veritatis
-                      labore dignissimos! Culpa architecto in ducimus. Rerum
-                      quos vero, quae dolor asperiores, doloribus pariatur qui
-                      harum nihil exercitationem libero dolorem blanditiis
-                      accusantium consequuntur a quisquam voluptatum iure animi
-                      expedita culpa ab distinctio, non labore maiores? Nisi rem
-                      cum praesentium, culpa magnam autem dolore nobis quos,
-                      quisquam ratione inventore sequi expedita excepturi at
-                      eaque exercitationem asperiores. Consequuntur ipsa et
-                      fugiat repellat impedit placeat voluptas atque fugit, quo
-                      ab ad consequatur eos nemo suscipit, neque possimus.
-                      Laboriosam animi, beatae ut est vel sunt similique
-                      reprehenderit nostrum obcaecati voluptatem a, odit
-                      quibusdam id, recusandae ipsam accusamus incidunt
-                      consequuntur culpa ea esse voluptatibus eius? Libero,
-                      dolorum laboriosam consequatur animi soluta amet tenetur
-                      unde neque. Blanditiis commodi deleniti error laudantium,
-                      exercitationem odio iure, nesciunt doloribus labore
-                      impedit sint quidem rem excepturi nisi? Reprehenderit
-                      delectus dolore harum vel, impedit dicta natus libero
-                      aspernatur totam repudiandae temporibus quas inventore
-                      eligendi fuga consequatur repellendus suscipit quia earum
-                      non. Earum facere aspernatur saepe quos molestias quam
-                      cupiditate, quas fugiat eius deleniti quidem in sit amet
-                      eaque accusamus nulla nemo, tenetur aperiam provident ipsa
-                      fugit deserunt modi ducimus. Fugit praesentium aspernatur
-                      impedit officiis nisi consectetur nemo fugiat nihil
-                      soluta! Pariatur amet at quod tempora tenetur aperiam nemo
-                      magni repudiandae aut. Mollitia vitae ut minus quasi
-                      doloribus? Necessitatibus, nesciunt odio. Ullam, vero?
-                      Temporibus sequi sint reiciendis dolorum laudantium eos
-                      necessitatibus deleniti? Soluta eius, saepe ab enim
-                      distinctio incidunt nemo, cumque atque possimus quos iusto
-                      totam dignissimos sed quis maxime perspiciatis! Iusto
-                      labore natus quo! Enim quibusdam officia perspiciatis
-                      fugit dolor veritatis, eveniet esse labore. Incidunt
-                      aliquid ipsa doloremque deserunt optio tempora, laudantium
-                      voluptates dolore quos vel reiciendis placeat omnis quidem
-                      beatae qui enim corrupti, quisquam sunt, labore facilis?
-                      Modi sint iusto nihil explicabo veritatis blanditiis unde
-                      dolore ullam cum, quis officia sunt quos iste ipsa!
-                      Necessitatibus repellendus facilis non unde ullam
-                      voluptatem doloribus, recusandae tempora explicabo nemo
-                      praesentium sequi neque eaque aut vero saepe at rem
-                      dolorum. Rem, saepe ea, sint reiciendis dignissimos veniam
-                      illo consequuntur repudiandae quas corrupti facilis, quos
-                      deserunt placeat.
+                    <div className="flex justify-center mt-4 text-gray-400 text-[14px]">
+                      <p className="flex items-center gap-1  ">
+                        <ShieldCheck className="w-4 h-4" />
+                        Safe and Secure Payments.Easy returns.100% Authentic
+                        products.
+                      </p>
                     </div>
                   </div>
                 </div>

@@ -16,23 +16,26 @@ export const FavoriteProvider = ({ children }) => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
+  // addToFavorite
   const addToFavorite = (item) => {
     setFavorites((prev) =>
       prev.find((p) => p.id === item.id) ? prev : [...prev, item]
     );
   };
-
+  //Remove fav
   const removeFromFavorite = (id) => {
     setFavorites((prev) => prev.filter((item) => item.id !== id));
   };
 
+  // toggleFavorite
   const toggleFavorite = (item) => {
     setFavorites((prev) =>
-      prev.some((p) => p.id === item.id)
+      prev.find((p) => p.id === item.id)
         ? prev.filter((p) => p.id !== item.id)
         : [...prev, item]
     );
   };
+  // boolean
   const isFavorite = (item) => favorites.some((fav) => fav.id === item.id);
 
   return (
