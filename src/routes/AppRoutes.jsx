@@ -4,7 +4,6 @@ import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Notfound from "../pages/Notfound";
 import ProductDetails from "../pages/ProductDetails";
-import ProductList from "../pages/SmartPhonesList";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Cart from "../pages/Cart";

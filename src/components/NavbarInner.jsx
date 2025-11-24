@@ -2,13 +2,18 @@ import { Bell, Download, Headset, Megaphone, ShoppingCart } from "lucide-react";
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.png";
+import { useAuth } from "../context/AuthContext";
 
 const NavbarInner = () => {
   const [menu, setMenu] = useState(false);
+  const { user } = useAuth();
 
   const navigate = useNavigate();
+
+  const location = useLocation();
+
   return (
     <div className=" fixed top-0 left-0 w-full z-40 transition-shadow duration-300">
       {" "}
@@ -36,10 +41,23 @@ const NavbarInner = () => {
                 placeholder:font-semibold outline-none shadow-lg"
           />
         </div>
-        <div onClick={() => navigate("/login")}>
-          <button className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]">
-            Login
-          </button>
+        <div>
+          {user ? (
+            <h4 onClick={() => navigate("/profile")} className="text-white">
+              {user?.name || user?.email?.split("@")[0] || "User"}
+            </h4>
+          ) : location.pathname === "/login" ? (
+            <button className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]">
+              Login
+            </button>
+          ) : (
+            <button
+              onClick={() => navigate("/login")}
+              className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]"
+            >
+              Login
+            </button>
+          )}
         </div>
         <div className=" text-white" onClick={() => navigate("/becomeASeller")}>
           <h5 className=" text-[13px] text-center font-semibold">
@@ -98,3 +116,23 @@ const NavbarInner = () => {
 };
 
 export default NavbarInner;
+//  <div className="">
+//   <div>
+//     {user ? (
+//       <h4 onClick={() => navigate("/profile")} className="text-white">
+//         {user?.name || user?.email?.split("@")[0] || "User"}
+//       </h4>
+//     ) : location.pathname === "/login" ? (
+//       <button className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]">
+//         Login
+//       </button>
+//     ) : (
+//       <button
+//         onClick={() => navigate("/login")}
+//         className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]"
+//       >
+//         Login
+//       </button>
+//     )}
+//   </div>
+// </div>

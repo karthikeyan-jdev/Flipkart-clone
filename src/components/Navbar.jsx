@@ -21,12 +21,14 @@ import {
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFavorite } from "../context/WishlistContext";
+import { useAuth } from "../context/AuthContext";
 const Navbar = () => {
   let navRef = useRef(null);
   let navigate = useNavigate();
   const [menu, setMenu] = useState(false);
   const [threeDotMenu, setThreeDotMenu] = useState(false);
   const { favorites } = useFavorite();
+  const { user, login, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -86,20 +88,26 @@ const Navbar = () => {
               <RiMobileDownloadLine className="text-[24px]" />
             </Link>
           </div>
-          <div className="flex items-center gap-3 p-2 rounded-sm md:hover:bg-gray-50 md:hover:border-[1px] md:hover:border-gray-200 ">
-            <CgProfile
-              className="text-[26px]"
-              // onClick={() => navigate("/profile")}
-            />
-            <div
-              className="md:relative flex items-center gap-1.5" //relative
-            >
-              <h1
-                className="text-[17px] tracking-tight font-normal cursor-pointer"
-                onClick={() => navigate("/login")}
+          <div className="flex items-center gap-3 p-2 rounded-sm md:hover:bg-primary md:hover:border-[1px] md:hover:border-gray-200 ">
+            {!user && (
+              <CgProfile
+                className="text-[26px]"
+                onClick={() =>
+                  user ? navigate("/profile") : navigate("/login")
+                }
+              />
+            )}
+            <div className="md:relative flex items-center gap-1.5">
+              <button
+                className="text-[16px] text-gray-600  tracking-tight font-[550] cursor-pointer"
+                onClick={() =>
+                  user ? navigate("/profile") : navigate("/login")
+                }
               >
-                Login
-              </h1>
+                {user
+                  ? user?.name || user?.email?.split("@")[0] || "User"
+                  : "Login"}
+              </button>
               <IoIosArrowDown
                 className={`text-[14px] hidden md:block cursor-pointer transition-transform duration-300 ${
                   menu ? "rotate-180" : "rotate-0"
@@ -118,16 +126,16 @@ const Navbar = () => {
                               : "opacity-0 scale-x-95 -translate-x-2 md:scale-y-95 md:-translate-y-2 pointer-events-none"
                           }`}
               >
-                <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
-                  <button
+                {user && (
+                  <li
                     onClick={() => {
-                      navigate("/profile");
+                      navigate("/Profile");
                     }}
-                    className="flex gap-2.5 items-center"
+                    className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200  flex gap-2.5 items-center"
                   >
                     <CgProfile size={18} /> <h4>Profile</h4>
-                  </button>
-                </li>
+                  </li>
+                )}
                 <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
                   <button
                     onClick={() => {
@@ -157,9 +165,14 @@ const Navbar = () => {
                 <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
                   <Bell size={18} /> <h4>Notification</h4>
                 </li>
-                <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
-                  <LogOut size={18} /> <h4>Logout</h4>
-                </li>
+                {user && (
+                  <li
+                    onClick={logout}
+                    className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200  flex gap-2.5 items-center"
+                  >
+                    <LogOut size={18} /> <h4>Logout</h4>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
@@ -169,9 +182,9 @@ const Navbar = () => {
             onClick={() => navigate("/cart")}
           >
             <ShoppingCart size={"26px"} />
-            <h1 className="hidden text-[17px] tracking-tight xl:block font-normal">
+            <button className="hidden text-[16px] font-semibold text-gray-700 tracking-tight xl:block">
               Cart
-            </h1>
+            </button>
           </div>
           {/*Become a Seller  */}
           <div
@@ -179,9 +192,9 @@ const Navbar = () => {
             onClick={() => navigate("/becomeASeller")}
           >
             <Store size={"26px"} />
-            <h1 className="text-[17px] tracking-tight hidden xl:block font-normal">
+            <buttun className=" tracking-tight hidden xl:block text-[16px] font-semibold text-gray-700">
               Become a Seller
-            </h1>
+            </buttun>
           </div>
           {/*threeDotMenu  */}
           <div

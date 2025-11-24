@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
+import React from "react";
 import { productCategorys } from "../constant/data";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Category = () => {
   const navigate = useNavigate();

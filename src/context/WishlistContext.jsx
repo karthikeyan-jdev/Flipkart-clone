@@ -7,11 +7,13 @@ export const useFavorite = () => useContext(FavoriteContext);
 export const FavoriteProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
+  // get items from local storgae to set items to favorites
   useEffect(() => {
     const storedFav = localStorage.getItem("favorites");
     if (storedFav) setFavorites(JSON.parse(storedFav));
   }, []);
 
+  // exeiting favorite items to store local storage
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
