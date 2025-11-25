@@ -27,6 +27,13 @@ export const AuthProvider = ({ children }) => {
     }
     return false;
   };
+  const Signup = (userName, email, password) => {
+    if (userName && email && password) {
+      setUser({ userName });
+      return true;
+    }
+    return false;
+  };
 
   const logout = () => {
     setUser(null);
@@ -35,7 +42,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, Signup, logout }}>
       {children}
     </AuthContext.Provider>
   );

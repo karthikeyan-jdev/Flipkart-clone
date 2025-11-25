@@ -5,6 +5,7 @@ import { IoReorderThreeOutline } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import {
+  ArrowLeft,
   Bell,
   CirclePoundSterling,
   DiamondPlus,
@@ -83,20 +84,17 @@ const Navbar = () => {
         </div>
         {/* login */}
         <div className="flex items-center gap-[15px] sm:gap-[30px]">
-          <div className="moblie-down md:hidden ">
-            <Link to="/*">
+          <buttun className="moblie-down md:hidden ">
+            <Link to="/mobileShortCut">
               <RiMobileDownloadLine className="text-[24px]" />
             </Link>
-          </div>
-          <div className="flex items-center gap-3 p-2 rounded-sm md:hover:bg-primary md:hover:border-[1px] md:hover:border-gray-200 ">
-            {!user && (
-              <CgProfile
-                className="text-[26px]"
-                onClick={() =>
-                  user ? navigate("/profile") : navigate("/login")
-                }
-              />
-            )}
+          </buttun>
+          <div className="flex items-center gap-2 p-2 rounded-sm md:hover:bg-primary md:hover:border-[1px] md:hover:border-gray-200 ">
+            <CgProfile
+              className="text-[22px]"
+              onClick={() => (user ? navigate("/profile") : navigate("/login"))}
+            />
+
             <div className="md:relative flex items-center gap-1.5">
               <button
                 className="text-[16px] text-gray-600  tracking-tight font-[550] cursor-pointer"
@@ -176,9 +174,9 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-          {/* ShoppingCart */}
+          {/* Cart */}
           <div
-            className=" xl:flex  items-center gap-3"
+            className=" xl:flex  items-center gap-2"
             onClick={() => navigate("/cart")}
           >
             <ShoppingCart size={"26px"} />
@@ -188,7 +186,7 @@ const Navbar = () => {
           </div>
           {/*Become a Seller  */}
           <div
-            className="hidden md:flex  items-center gap-3 ml-3"
+            className="hidden md:flex  items-center gap-2 ml-3"
             onClick={() => navigate("/becomeASeller")}
           >
             <Store size={"26px"} />

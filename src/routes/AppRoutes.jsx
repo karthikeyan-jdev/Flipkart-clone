@@ -12,6 +12,8 @@ import Category from "../components/Category";
 import BecomeASeller from "../pages/BecomeASeller";
 import Wishlist from "../pages/Wishlist";
 import SmartPhonesList from "../pages/SmartPhonesList";
+import MobileShortCut from "../pages/MobileShortCut";
+import Signup from "../pages/Signup";
 
 const AppRouter = createBrowserRouter([
   {
@@ -23,7 +25,7 @@ const AppRouter = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "category", 
+        path: "category",
         element: <Category />,
       },
       {
@@ -49,9 +51,14 @@ const AppRouter = createBrowserRouter([
         path: "profile",
         element: <Profile />,
       },
+
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
       },
       {
         path: "cart",
@@ -70,6 +77,10 @@ const AppRouter = createBrowserRouter([
         element: <Notfound />,
       },
     ],
+  },
+  {
+    path: "mobileShortCut",
+    element: <MobileShortCut />,
   },
 ]);
 

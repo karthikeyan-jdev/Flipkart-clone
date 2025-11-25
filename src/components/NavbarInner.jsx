@@ -9,15 +9,14 @@ import { useAuth } from "../context/AuthContext";
 const NavbarInner = () => {
   const [menu, setMenu] = useState(false);
   const { user } = useAuth();
-
   const navigate = useNavigate();
-
   const location = useLocation();
 
   return (
     <div className=" fixed top-0 left-0 w-full z-40 transition-shadow duration-300">
       {" "}
       <div className="flex justify-around xl:justify-center items-center gap-5 xl:gap-10 h-13 bg-primary">
+        {/* Logo */}
         <div
           onClick={() => {
             navigate("/");
@@ -31,6 +30,7 @@ const NavbarInner = () => {
             title="Flipkart"
           ></img>
         </div>
+        {/* Seacrh input  */}
         <div className="md:min-w-[36%] lg:min-w-[38%] xl:min-w-[40%] h-[33px]">
           <input
             type="text"
@@ -41,30 +41,30 @@ const NavbarInner = () => {
                 placeholder:font-semibold outline-none shadow-lg"
           />
         </div>
+        {/* Login btn */}
         <div>
           {user ? (
             <h4 onClick={() => navigate("/profile")} className="text-white">
               {user?.name || user?.email?.split("@")[0] || "User"}
             </h4>
-          ) : location.pathname === "/login" ? (
-            <button className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]">
-              Login
-            </button>
           ) : (
             <button
-              onClick={() => navigate("/login")}
+              onClick={() =>
+                location.pathname === "/login" ? undefined : navigate("/login")
+              }
               className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]"
             >
               Login
             </button>
           )}
         </div>
+        {/*Become a Seller*/}
         <div className=" text-white" onClick={() => navigate("/becomeASeller")}>
           <h5 className=" text-[13px] text-center font-semibold">
             Become a Seller
           </h5>
         </div>
-        {/* menu */}
+        {/* More menu */}
         <div
           className="relative flex items-center gap-1 "
           onMouseEnter={() => setMenu(true)}
