@@ -1,24 +1,25 @@
-import { Heart } from "lucide-react";
+import { Heart, Trash2 } from "lucide-react";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useFavorite } from "../context/WishlistContext";
 
 const ProductCard = ({ item }) => {
   const navigate = useNavigate();
-
-
-  const { isFavorite, toggleFavorite } = useFavorite();
-
+  const { isFavorite, toggleFavorite, removeFromFavorite } = useFavorite();
+  const location = useLocation();
+  const isFavoritePage = location.pathname === "/wishlist";
   return (
     <div
       className="group flex gap-3 border-gray-200 rounded-md p-3
                shadow-sm hover:shadow-md transition-shadow duration-300 h-[200px] lg:h-[240px]"
-      onClick={() => {
-        navigate(`/details/${item.id}`);
-      }}
     >
-      {/* images + favorite */}
-      <div className="relative min-w-[20%] h-[150px] lg:h-[200px] xl:h-[250px] pb-5">
+      {/*box-1 images + favorite */}
+      <div
+        className="relative min-w-[20%] h-[150px] lg:h-[200px] xl:h-[250px] pb-5"
+        onClick={() => {
+          navigate(`/details/${item.id}`);
+        }}
+      >
         <img
           src={item.image}
           alt={item.title}
@@ -39,9 +40,14 @@ const ProductCard = ({ item }) => {
         </button>
       </div>
 
-      {/* descripction */}
+      {/*box-2 descripction */}
       <div className="w-full flex lg:gap-1 ">
-        <div className="w-full flex flex-col gap-1">
+        <div
+          className="w-full flex flex-col gap-1"
+          onClick={() => {
+            navigate(`/details/${item.id}`);
+          }}
+        >
           <h5 className="line-clamp-1  font-[550] text-[14px] lg:text-[18px] group-hover:text-blue-500 transition-colors duration-300">
             {item.title}
           </h5>
@@ -54,15 +60,27 @@ const ProductCard = ({ item }) => {
           </p>
           <p className="line-clamp-5 text-[12px] mt-1">{item.description}</p>
         </div>
+        {/* box-3 */}
         <div className="w-[24%] lg:w-[35%]">
-          <h1 className="font-semibold py-4">
-            ₹
-            {typeof item.price === "number"
-              ? item.price
-              : item.price
-              ? item.price.split(" ")[1].split("*")[0].trim()
-              : "—"}
-          </h1>
+          {isFavoritePage ? (
+            <button className="text-gray-400  h-25 p-8">
+              {" "}
+              <Trash2
+                onClick={() => {
+                  removeFromFavorite(item.id);
+                }}
+              />
+            </button>
+          ) : (
+            <h1 className="font-semibold py-4">
+              ₹
+              {typeof item.price === "number"
+                ? item.price
+                : item.price
+                ? item.price.split(" ")[1].split("*")[0].trim()
+                : "—"}
+            </h1>
+          )}
         </div>
       </div>
     </div>

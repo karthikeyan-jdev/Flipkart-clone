@@ -74,7 +74,7 @@ const Login = () => {
               <span className="text-primary">Terms of Use</span> and{" "}
               <span className="text-primary">Privacy Policy.</span>
             </p>
-            <div className="bg-orange-400 text-white text-center py-2">
+            <div className="bg-orange-500 text-white text-center py-2">
               {" "}
               <button type="submit">Login</button>
             </div>

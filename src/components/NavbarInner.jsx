@@ -1,16 +1,32 @@
-import { Bell, Download, Headset, Megaphone, ShoppingCart } from "lucide-react";
+import {
+  Bell,
+  CirclePoundSterling,
+  DiamondPlus,
+  Download,
+  Gift,
+  Headset,
+  Heart,
+  LogOut,
+  Megaphone,
+  Package,
+  Tag,
+} from "lucide-react";
 import React, { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import { useAuth } from "../context/AuthContext";
+import { useFavorite } from "../context/WishlistContext";
+import { CgProfile } from "react-icons/cg";
 
 const NavbarInner = () => {
   const [menu, setMenu] = useState(false);
-  const { user } = useAuth();
+  const [moreMenu, setMoreMenu] = useState(false);
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const { favorites } = useFavorite();
 
   return (
     <div className=" fixed top-0 left-0 w-full z-40 transition-shadow duration-300">
@@ -42,21 +58,96 @@ const NavbarInner = () => {
           />
         </div>
         {/* Login btn */}
-        <div>
-          {user ? (
-            <h4 onClick={() => navigate("/profile")} className="text-white">
-              {user?.name || user?.email?.split("@")[0] || "User"}
-            </h4>
-          ) : (
-            <button
-              onClick={() =>
-                location.pathname === "/login" ? undefined : navigate("/login")
-              }
-              className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]"
+        <div className="md:relative flex items-center gap-0.5">
+          <div className="">
+            {" "}
+            {user ? (
+              <h4 onClick={() => navigate("/profile")} className="text-white">
+                {user?.userName || user?.email?.split("@")[0] || "User"}
+              </h4>
+            ) : (
+              <button
+                onClick={() =>
+                  location.pathname === "/login"
+                    ? undefined
+                    : navigate("/login")
+                }
+                className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]"
+              >
+                Login
+              </button>
+            )}
+          </div>
+          <div className="">
+            {user && (
+              <IoIosArrowDown
+                className={`hidden md:block text-[14px] mt-1 text-white cursor-pointer transition-transform duration-300 ${
+                  menu ? "rotate-180" : "rotate-0"
+                } `}
+                onMouseEnter={() => setMenu(true)}
+                onMouseLeave={() => setMenu(false)}
+              />
+            )}
+            {/* Dropdown */}
+            <ul
+              onMouseEnter={() => setMenu(true)}
+              onMouseLeave={() => setMenu(false)}
+              className={` absolute top-2 left-0 h-[120vh] md:h-auto md:top-5 md:left-1  bg-white text-[14px] rounded shadow 
+                          transition-all duration-200 sm:duration-300 ease-out origin-left sm:origin-top ${
+                            menu
+                              ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
+                              : "opacity-0 scale-x-95 -translate-x-2 md:scale-y-95 md:-translate-y-2 pointer-events-none"
+                          }`}
             >
-              Login
-            </button>
-          )}
+              {user && (
+                <li
+                  onClick={() => {
+                    navigate("/Profile");
+                  }}
+                  className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200  flex gap-2.5 items-center"
+                >
+                  <CgProfile size={18} /> <h4>Profile</h4>
+                </li>
+              )}
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <button
+                  onClick={() => {
+                    navigate("/wishlist");
+                  }}
+                  className="flex gap-2.5 items-center"
+                >
+                  <Heart size={18} /> {` wishlist (${favorites.length})`}
+                </button>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <CirclePoundSterling size={18} color="#d7c23c" />{" "}
+                <h4>SuperCoin Zone</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <DiamondPlus size={18} /> <h4> Flipkart Plue Zone</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Package size={18} /> <h4>Orders</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Tag size={18} /> <h4>Coupons</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Gift size={18} /> <h4>Gift Cards</h4>
+              </li>
+              <li className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200 flex gap-2.5 items-center">
+                <Bell size={18} /> <h4>Notification</h4>
+              </li>
+              {user && (
+                <li
+                  onClick={logout}
+                  className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200  flex gap-2.5 items-center"
+                >
+                  <LogOut size={18} /> <h4>Logout</h4>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
         {/*Become a Seller*/}
         <div className=" text-white" onClick={() => navigate("/becomeASeller")}>
@@ -67,21 +158,21 @@ const NavbarInner = () => {
         {/* More menu */}
         <div
           className="relative flex items-center gap-1 "
-          onMouseEnter={() => setMenu(true)}
-          onMouseLeave={() => setMenu(false)}
+          onMouseEnter={() => setMoreMenu(true)}
+          onMouseLeave={() => setMoreMenu(false)}
         >
           <h5 className=" text-[13px] tracking-tight font-semibold text-white">
             More
           </h5>
           <IoIosArrowDown
             className={`text-[12px] text-white transition-transform duration-300  ${
-              menu ? "rotate-180" : "rotate-0"
+              moreMenu ? "rotate-180" : "rotate-0"
             }`}
           />
           <ul
             className={`absolute top-5 right-0 bg-white text-[14px] overflow-hidden 
               rounded shadow transition-all duration-300 ease-out origin-top  ${
-                menu
+                moreMenu
                   ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"
                   : "opacity-0 scale-y-95 -translate-y-2 pointer-events-none"
               }`}
@@ -116,23 +207,3 @@ const NavbarInner = () => {
 };
 
 export default NavbarInner;
-//  <div className="">
-//   <div>
-//     {user ? (
-//       <h4 onClick={() => navigate("/profile")} className="text-white">
-//         {user?.name || user?.email?.split("@")[0] || "User"}
-//       </h4>
-//     ) : location.pathname === "/login" ? (
-//       <button className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]">
-//         Login
-//       </button>
-//     ) : (
-//       <button
-//         onClick={() => navigate("/login")}
-//         className="bg-white text-blue-500 min-w-[100px] max-w-[130px] py-[3px] font-bold font-rubik text-[14px]"
-//       >
-//         Login
-//       </button>
-//     )}
-//   </div>
-// </div>

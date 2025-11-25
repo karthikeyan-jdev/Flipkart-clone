@@ -3,21 +3,23 @@ import ProductCard from "../components/ProductCard";
 import { useFavorite } from "../context/WishlistContext";
 import { useNavigate } from "react-router-dom";
 import emptyWishlist from "../assets/img/emptyWishlist.png";
+import { useAuth } from "../context/AuthContext";
 
 const Wishlist = () => {
   const { favorites } = useFavorite();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   return (
     <div>
-      <section className="flex gap-5  sm:p-5">
+      <section className="flex gap-5 justify-center sm:p-5">
         {/* side filter */}
-        <div className="space-y-2 w-[40%] lg:w-[25%] h-fit hidden md:block">
+       {user && <div className="space-y-2 w-[25%] lg:w-[20%] h-fit hidden md:block">
           <div className="h-15 bg-white">profile</div>
           <div className="h-55 bg-white"> ditails</div>
-        </div>
+        </div>}
         {/* main contant */}
-        <div className="w-full h-[100vh] bg-white ">
+        <div className="md:w-[70%] h-[100vh] bg-white ">
           <h5 className="font-semibold text-[18px] p-5 pb-3 lg:text-xl lg:p-7 lg:pb-5">
             My Wishlist ({favorites.length})
           </h5>
