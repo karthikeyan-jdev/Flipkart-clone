@@ -29,7 +29,7 @@ const Navbar = () => {
   const [menu, setMenu] = useState(false);
   const [threeDotMenu, setThreeDotMenu] = useState(false);
   const { favorites } = useFavorite();
-  const { user, login, logout } = useAuth();
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +50,9 @@ const Navbar = () => {
         className="flex justify-around xl:justify-center items-center h-14 bg-white gap-2
      fixed top-0 left-0 w-full z-40 transition-shadow duration-300"
       >
+        {/*box-1 three line & logo  */}
         <div className="flex items-center">
+          {/* three /ine */}
           <div
             className="md:hidden"
             onMouseEnter={() => setMenu(true)}
@@ -58,6 +60,7 @@ const Navbar = () => {
           >
             <IoReorderThreeOutline className="text-[30px]" />
           </div>
+          {/* logo */}
           <div
             onClick={() => {
               navigate("/");
@@ -71,7 +74,8 @@ const Navbar = () => {
             ></img>
           </div>
         </div>
-        {/* search input */}
+
+        {/*box-2 search input */}
         <div className="hidden md:block md:min-w-[40%] lg:min-w-[42%] xl:min-w-[46%] h-[40px]">
           <input
             type="text"
@@ -82,13 +86,17 @@ const Navbar = () => {
              outline-none "
           />
         </div>
-        {/* login */}
+
+        {/* box-3 icon groups */}
         <div className="flex items-center gap-[15px] sm:gap-[30px]">
+          {/* mobileShortCut icon */}
           <buttun className="moblie-down md:hidden ">
             <Link to="/mobileShortCut">
               <RiMobileDownloadLine className="text-[24px]" />
             </Link>
           </buttun>
+
+          {/* profile icon & login text & down arrow */}
           <div className="flex items-center gap-2 p-2 rounded-sm md:hover:bg-primary md:hover:border-[1px] md:hover:border-gray-200 ">
             <CgProfile
               className="text-[22px]"
@@ -98,9 +106,7 @@ const Navbar = () => {
             <div className="md:relative flex items-center gap-1.5">
               <button
                 className="text-[16px] text-gray-600  tracking-tight font-[550] cursor-pointer"
-                onClick={() =>
-                  user ? undefined : navigate("/login")
-                }
+                onClick={() => (user ? undefined : navigate("/login"))}
               >
                 {user
                   ? user?.userName || user?.email?.split("@")[0] || "User"
@@ -174,6 +180,7 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
+
           {/* Cart */}
           <div
             className=" xl:flex  items-center gap-2"
@@ -184,6 +191,7 @@ const Navbar = () => {
               Cart
             </button>
           </div>
+
           {/*Become a Seller  */}
           <div
             className="hidden md:flex  items-center gap-2 ml-3"
@@ -194,6 +202,7 @@ const Navbar = () => {
               Become a Seller
             </buttun>
           </div>
+
           {/*threeDotMenu  */}
           <div
             className="relative hidden md:block pl-[20px]"
