@@ -99,11 +99,11 @@ const Navbar = () => {
               <button
                 className="text-[16px] text-gray-600  tracking-tight font-[550] cursor-pointer"
                 onClick={() =>
-                  user ? navigate("/profile") : navigate("/login")
+                  user ? undefined : navigate("/login")
                 }
               >
                 {user
-                  ? user?.name || user?.email?.split("@")[0] || "User"
+                  ? user?.userName || user?.email?.split("@")[0] || "User"
                   : "Login"}
               </button>
               <IoIosArrowDown

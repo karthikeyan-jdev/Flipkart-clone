@@ -4,6 +4,7 @@ import { useFavorite } from "../context/WishlistContext";
 import { useNavigate } from "react-router-dom";
 import emptyWishlist from "../assets/img/emptyWishlist.png";
 import { useAuth } from "../context/AuthContext";
+import Profile from "./Profile";
 
 const Wishlist = () => {
   const { favorites } = useFavorite();
@@ -12,19 +13,20 @@ const Wishlist = () => {
 
   return (
     <div>
-      <section className="flex gap-5 justify-center sm:p-5">
+      <section className="flex justify-center sm:p-5">
         {/* side filter */}
-       {user && <div className="space-y-2 w-[25%] lg:w-[20%] h-fit hidden md:block">
-          <div className="h-15 bg-white">profile</div>
-          <div className="h-55 bg-white"> ditails</div>
-        </div>}
+        {user && (
+          <div className="space-y-2  w-[30%] lg:w-[20%] h-fit hidden md:block">
+            <Profile />
+          </div>
+        )}
         {/* main contant */}
         <div className="md:w-[70%] h-[100vh] bg-white ">
           <h5 className="font-semibold text-[18px] p-5 pb-3 lg:text-xl lg:p-7 lg:pb-5">
             My Wishlist ({favorites.length})
           </h5>
           {favorites.length == 0 ? (
-            <div className=" flex flex-col justify-center items-center gap-3 h-[60vh] bg-white">
+            <div className=" flex flex-col justify-center items-center gap-3 h-[60vh] w-[90vw] bg-white">
               <div className="">
                 <img
                   src={emptyWishlist}

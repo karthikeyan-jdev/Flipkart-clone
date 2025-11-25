@@ -60,9 +60,8 @@ const NavbarInner = () => {
         {/* Login btn */}
         <div className="md:relative flex items-center gap-0.5">
           <div className="">
-            {" "}
             {user ? (
-              <h4 onClick={() => navigate("/profile")} className="text-white">
+              <h4 className="text-white">
                 {user?.userName || user?.email?.split("@")[0] || "User"}
               </h4>
             ) : (

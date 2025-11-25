@@ -63,7 +63,7 @@ const ProductCard = ({ item }) => {
         {/* box-3 */}
         <div className="w-[24%] lg:w-[35%]">
           {isFavoritePage ? (
-            <button className="text-gray-400  h-25 p-8">
+            <button className="text-gray-400 h-20  md:h-25 p-2 md:p-8">
               {" "}
               <Trash2
                 onClick={() => {
