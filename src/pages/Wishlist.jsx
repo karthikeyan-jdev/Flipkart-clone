@@ -26,7 +26,7 @@ const Wishlist = () => {
             My Wishlist ({favorites.length})
           </h5>
           {favorites.length == 0 ? (
-            <div className=" flex flex-col justify-center items-center gap-3 h-[60vh] w-[90vw] bg-white">
+            <div className=" flex flex-col justify-center items-center gap-3 h-[60vh] w-[90vw] md:w-auto bg-white">
               <div className="">
                 <img
                   src={emptyWishlist}
