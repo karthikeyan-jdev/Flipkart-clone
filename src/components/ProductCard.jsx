@@ -1,5 +1,5 @@
 import { Heart, Trash2 } from "lucide-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFavorite } from "../context/WishlistContext";
 
@@ -13,6 +13,7 @@ const ProductCard = ({ item }) => {
   const { isFavorite, toggleFavorite, removeFromFavorite } = useFavorite();
   const location = useLocation();
   const isFavoritePage = location.pathname === "/wishlist";
+
   return (
     <div
       className="group flex gap-3 border-gray-200 rounded-md p-3

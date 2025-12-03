@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const FavoriteContext = createContext();
 
@@ -31,12 +32,20 @@ export const FavoriteProvider = ({ children }) => {
 
   // toggleFavorite
   const toggleFavorite = (item) => {
+    const isFav = favorites.some((fav) => fav.id === item.id);
+
     setFavorites((prev) =>
-      prev.find((p) => p.id === item.id)
-        ? prev.filter((p) => p.id !== item.id)
-        : [...prev, item]
+      isFav ? prev.filter((p) => p.id !== item.id) : [...prev, item]
     );
+    if (window.innerWidth >= 1024) {
+      if (isFav) {
+        toast.warning("Removed from favorites ❌", { duration: 1200 });
+      } else {
+        toast.success("Added to favorites ❤️", { duration: 1200 });
+      }
+    }
   };
+
   // boolean
   const isFavorite = (item) => favorites.some((fav) => fav.id === item.id);
 
