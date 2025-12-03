@@ -1,8 +1,13 @@
 import { ChevronRight } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SmartPhonesCard = ({ item }) => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
   const navigate = useNavigate();
 
   if (!item) return null;

@@ -4,7 +4,6 @@ import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Notfound from "../pages/Notfound";
 import ProductDetails from "../pages/ProductDetails";
-import LocalProductDetails from "../pages/LocalProductDetails";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Cart from "../pages/Cart";
@@ -45,11 +44,11 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "details/api/:id",
-        element: <ProductDetails />,
+        element: <ProductDetails type="api" />,
       },
       {
         path: "details/local/:id",
-        element: <LocalProductDetails />,
+        element: <ProductDetails type="local" />,
       },
 
       {

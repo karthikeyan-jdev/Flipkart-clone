@@ -1,9 +1,14 @@
 import { Heart, Trash2 } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFavorite } from "../context/WishlistContext";
 
 const ProductCard = ({ item }) => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
   const navigate = useNavigate();
   const { isFavorite, toggleFavorite, removeFromFavorite } = useFavorite();
   const location = useLocation();
@@ -12,12 +17,14 @@ const ProductCard = ({ item }) => {
     <div
       className="group flex gap-3 border-gray-200 rounded-md p-3
                shadow-sm hover:shadow-md transition-shadow duration-300 h-[200px] lg:h-[240px]"
-      onClick={() => {
-        navigate(`/details/api/${item.id}`);
-      }}
     >
       {/*box-1 images + favorite */}
-      <div className="relative min-w-[20%] h-[150px] lg:h-[200px] xl:h-[250px] pb-5">
+      <div
+        className="relative min-w-[20%] h-[150px] lg:h-[200px] xl:h-[250px] pb-5"
+        onClick={() => {
+          navigate(`/details/api/${item.id}`);
+        }}
+      >
         <img
           src={item.image}
           alt={item.title}
@@ -40,7 +47,12 @@ const ProductCard = ({ item }) => {
 
       {/*box-2 descripction */}
       <div className="w-full flex lg:gap-1 ">
-        <div className="w-full flex flex-col gap-1">
+        <div
+          className="w-full flex flex-col gap-1"
+          onClick={() => {
+            navigate(`/details/api/${item.id}`);
+          }}
+        >
           <h5 className="line-clamp-1  font-[550] text-[14px] lg:text-[18px] group-hover:text-blue-500 transition-colors duration-300">
             {item.title}
           </h5>
