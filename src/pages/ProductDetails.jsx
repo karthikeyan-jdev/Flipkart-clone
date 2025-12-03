@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { smartphones } from "../constant/data";
 import { Heart, ShieldCheck, Tag, TicketPercent } from "lucide-react";
 import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
@@ -20,9 +19,7 @@ const ProductDetails = () => {
 
   const { addToCart } = useCart();
 
-  let localProduct = smartphones.find((p) => p.id === Number(id));
-
-  const displayProduct = localProduct || data;
+  const ApiProduct = data;
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -37,7 +34,7 @@ const ProductDetails = () => {
       {loading ? (
         <Loading />
       ) : (
-        displayProduct && (
+        ApiProduct && (
           <section className="section-con">
             <div className="flex justify-center">
               <div className="lg:flex  bg-white gap-4 pt-3">
@@ -45,12 +42,12 @@ const ProductDetails = () => {
                 <div className=" flex lg:ml-4 lg:my-2 justify-center h-[560px]">
                   <div className="overflow-y-scroll h-[480px] scrollbar-hide hidden xl:block">
                     {Array(12)
-                      .fill(displayProduct.image)
+                      .fill(ApiProduct.image)
                       .map((img, index) => (
                         <img
                           key={index}
                           src={img}
-                          alt={displayProduct.title}
+                          alt={ApiProduct.title}
                           className="h-[64px] min-w-[62px] p-2 border border-gray-100"
                         />
                       ))}
@@ -59,8 +56,8 @@ const ProductDetails = () => {
                     {/* img container */}
                     <div className="lg:border-[1px] lg:border-gray-200 py-[14px] flex justify-center">
                       <img
-                        src={displayProduct.image}
-                        alt={displayProduct.title}
+                        src={ApiProduct.image}
+                        alt={ApiProduct.title}
                         className="w-full h-[400px]  p-5"
                       />
                     </div>
@@ -69,7 +66,7 @@ const ProductDetails = () => {
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          addToCart(displayProduct);
+                          addToCart(ApiProduct);
                           navigate("/cart");
                         }}
                         className="text-[18px] bg-amber-300 text-white py-[14px]"
@@ -85,12 +82,12 @@ const ProductDetails = () => {
                       className="absolute top-1 right-2 bg-white rounded-full p-1 shadow-sm hover:scale-105 transition-transform"
                       onClick={(e) => {
                         e.stopPropagation();
-                        toggleFavorite(displayProduct);
+                        toggleFavorite(ApiProduct);
                       }}
                     >
                       <Heart
                         className={` w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 xl:w-6.5 xl:h-6.5 ${
-                          isFavorite(displayProduct)
+                          isFavorite(ApiProduct)
                             ? "text-red-600 fill-red-600 "
                             : "text-gray-300 "
                         }`}
@@ -101,7 +98,7 @@ const ProductDetails = () => {
 
                 {/* descreption */}
                 <div className="flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide  ">
-                  <h1 className="text-[18px]">{displayProduct.title}</h1>
+                  <h1 className="text-[18px]">{ApiProduct.title}</h1>
                   <p className="text-gray-500 text-[14px]">
                     {" "}
                     <span className="bg-green-700 text-white text-[14px] px-[4px] pt-[2px] pb-0">
@@ -111,10 +108,10 @@ const ProductDetails = () => {
                   </p>
                   <h1 className="text-[28px] font-[550]">
                     ₹{" "}
-                    {typeof displayProduct.price === "number"
-                      ? displayProduct.price
-                      : displayProduct.price
-                      ? displayProduct.price.split(" ")[1].split("*")[0].trim()
+                    {typeof ApiProduct.price === "number"
+                      ? ApiProduct.price
+                      : ApiProduct.price
+                      ? ApiProduct.price.split(" ")[1].split("*")[0].trim()
                       : "—"}
                     <span className="text-green-700 text-[16px] pl-1.5">
                       27% off
@@ -189,10 +186,10 @@ const ProductDetails = () => {
                         <div className="">
                           {" "}
                           ₹{" "}
-                          {typeof displayProduct.price === "number"
-                            ? displayProduct.price
-                            : displayProduct.price
-                            ? displayProduct.price
+                          {typeof ApiProduct.price === "number"
+                            ? ApiProduct.price
+                            : ApiProduct.price
+                            ? ApiProduct.price
                                 .split(" ")[1]
                                 .split("*")[0]
                                 .trim()

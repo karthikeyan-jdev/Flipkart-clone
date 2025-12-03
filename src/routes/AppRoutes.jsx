@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Products from "../pages/Products";
 import Notfound from "../pages/Notfound";
 import ProductDetails from "../pages/ProductDetails";
+import LocalProductDetails from "../pages/LocalProductDetails";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Cart from "../pages/Cart";
@@ -29,11 +30,11 @@ const AppRouter = createBrowserRouter([
         element: <Category />,
       },
       {
-        path: "categorylist", //api
+        path: "categorylist", //API Call Data
         element: <CategoryDetails />,
       },
       {
-        path: "products", //smart phone
+        path: "products", //Local Array(Smart phone) Data
         element: <Products />,
         children: [
           {
@@ -43,8 +44,12 @@ const AppRouter = createBrowserRouter([
         ],
       },
       {
-        path: "details/:id",
+        path: "details/api/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "details/local/:id",
+        element: <LocalProductDetails />,
       },
 
       {

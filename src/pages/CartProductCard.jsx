@@ -13,7 +13,7 @@ const CardProductCard = ({ item }) => {
       <div
         className=" flex gap-2 border-gray-200 rounded-md p-2 md:p-5"
         onClick={() => {
-          navigate(`/details/${item.id}`);
+          navigate(`/details/api/${item.id}`);
         }}
       >
         {/* images*/}

@@ -8,7 +8,7 @@ const SmartPhonesCard = ({ item }) => {
   if (!item) return null;
 
   const handleClick = () => {
-    navigate(`/details/${item.id}`);
+    navigate(`/details/local/${item.id}`);
   };
 
   return (
