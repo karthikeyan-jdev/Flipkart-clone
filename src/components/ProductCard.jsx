@@ -1,5 +1,5 @@
 import { Heart, Trash2 } from "lucide-react";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFavorite } from "../context/WishlistContext";
 
@@ -69,45 +69,14 @@ const ProductCard = ({ item }) => {
         {/* box-3 */}
         <div className="w-[24%] lg:w-[35%]">
           {isFavoritePage ? (
-            <div className="">
-              <button className="text-gray-400 h-20  md:h-25 p-2 md:p-8">
-                <Trash2
-                  onClick={() => {
-                    removeFromFavorite(item.id);
-                  }}
-                />
-              </button>
-              <div
-                className={`absolute left-1/2 -translate-x-1/2 mt-2 transition-all duration-200 z-50${
-                  remove
-                    ? "opacity-100 scale-100 pointer-events-auto"
-                    : "opacity-0 scale-95 pointer-events-none"
-                }`}
-              >
-                <div className="bg-white shadow-lg rounded-md px-4 py-3 text-[14px] flex gap-4">
-                  <button
-                    className="hover:text-gray-400"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setRemove(false);
-                    }}
-                  >
-                    Cancel
-                  </button>
-
-                  <button
-                    className="hover:text-red-600"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      removeFromCart(item.id);
-                      setRemove(false);
-                    }}
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
+            <button className="text-gray-400 h-20  md:h-25 p-2 md:p-8">
+              {" "}
+              <Trash2
+                onClick={() => {
+                  removeFromFavorite(item.id);
+                }}
+              />
+            </button>
           ) : (
             <h1 className="font-semibold py-4">
               ₹
