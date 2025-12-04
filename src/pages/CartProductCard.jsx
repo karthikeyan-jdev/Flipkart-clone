@@ -1,11 +1,12 @@
 import { CirclePoundSterling } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CardContext";
+import { remove } from "dom/lib/mutation";
 
 const CardProductCard = ({ item }) => {
   const navigate = useNavigate();
-
+  const [remove, setRemove] = useState(false);
   const { removeFromCart, updateQty } = useCart();
 
   return (
@@ -73,7 +74,7 @@ const CardProductCard = ({ item }) => {
               item.qty > 1 && updateQty(item.id, item.qty - 1);
             }}
             className={`flex  justify-center items-center h-6 px-2 border-1 border-gray-300 rounded-2xl ${
-              item.qty === 1 && "bg-gray-200 text-gray-400" 
+              item.qty === 1 && "bg-gray-200 text-gray-400"
             }`}
           >
             -
@@ -90,15 +91,48 @@ const CardProductCard = ({ item }) => {
             +
           </button>
         </div>
-        <div>
-          <button
-            onClick={() => {
-              removeFromCart(item.id);
-            }}
-            className="font-semibold text-gray-500 hover:text-gray-700"
-          >
+        <div
+          className="relative"
+          onClick={() => {
+            setRemove(true);
+          }}
+        >
+          <button className="font-semibold text-gray-500 hover:text-gray-700 ">
             REMOVE
           </button>
+
+          <div
+            className={`absolute right-[-55px] transition-all duration-200 ${
+              remove
+                ? "opacity-100 scale-100 pointer-events-auto"
+                : "opacity-0 scale-95 pointer-events-none"
+            }`}
+          >
+            <div className="bg-gray-300 h-full ">
+              {" "}
+              <div className="flex gap-4 shadow-sm hover:shadow-md transition-shadow duration-300 text-gray-900 bg-white p-3 ">
+                <button
+                  className="hover:text-gray-400 text-[14px]"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setRemove(false);
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="hover:text-red-600 text-[14px]"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeFromCart(item.id);
+                    setRemove(false);
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
