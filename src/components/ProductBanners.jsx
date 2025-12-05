@@ -8,7 +8,7 @@ const ProductBanners = () => {
         {productbBannerGrid.map((banner) => {
           return (
             <div className="" key={banner.id}>
-              <img src={banner.imgUrl} alt="banner" />
+              <img src={banner.imgUrl} alt="banner"  />
             </div>
           );
         })}
