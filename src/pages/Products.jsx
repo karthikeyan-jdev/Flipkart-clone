@@ -5,7 +5,6 @@ import ProductList from "./SmartPhonesList";
 
 const Products = () => {
   return (
-    <section>
       <div className="pb-[10px] xl:flex xl:gap-3 ">
         <div className="w-full xl:w-[80%] md:my-[auto]  md:items-center">
           <ProductList headline={"Best deal on smartphones"} />
@@ -14,8 +13,6 @@ const Products = () => {
           <Ad />
         </div>
       </div>
-      <ProductBanners />
-    </section>
   );
 };
 

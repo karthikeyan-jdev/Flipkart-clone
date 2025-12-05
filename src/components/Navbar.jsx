@@ -90,11 +90,9 @@ const Navbar = () => {
         {/* box-3 icon groups */}
         <div className="flex items-center gap-[15px] sm:gap-[30px]">
           {/* mobileShortCut icon */}
-          <buttun className="moblie-down md:hidden ">
-            <Link to="/mobileShortCut">
-              <RiMobileDownloadLine className="text-[24px]" />
-            </Link>
-          </buttun>
+          <Link to="/mobileShortCut" className="moblie-down md:hidden ">
+            <RiMobileDownloadLine className="text-[24px]" />
+          </Link>
 
           {/* profile icon & login text & down arrow */}
           <div className="flex items-center gap-2 p-2 rounded-sm md:hover:bg-primary md:hover:border-[1px] md:hover:border-gray-200 ">
@@ -182,26 +180,23 @@ const Navbar = () => {
           </div>
 
           {/* Cart */}
-          <div
-            className=" xl:flex  items-center gap-2"
-            onClick={() => navigate("/cart")}
-          >
+          <Link className=" xl:flex  items-center gap-2" to="/cart">
             <ShoppingCart size={"26px"} />
-            <button className="hidden text-[16px] font-semibold text-gray-700 tracking-tight xl:block">
+            <span className="hidden text-[16px] font-semibold text-gray-700 tracking-tight xl:block">
               Cart
-            </button>
-          </div>
+            </span>
+          </Link>
 
           {/*Become a Seller  */}
-          <div
+          <Link
             className="hidden md:flex  items-center gap-2 ml-3"
             onClick={() => navigate("/becomeASeller")}
           >
             <Store size={"26px"} />
-            <buttun className=" tracking-tight hidden xl:block text-[16px] font-semibold text-gray-700">
+            <span className=" tracking-tight hidden xl:block text-[16px] font-semibold text-gray-700">
               Become a Seller
-            </buttun>
-          </div>
+            </span>
+          </Link>
 
           {/*threeDotMenu  */}
           <div

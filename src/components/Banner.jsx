@@ -6,12 +6,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { banners } from "../constant/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const Banner = () => {
+const Banner = ({ banners }) => {
   return (
-    <section className="relative !py-[14px] ">
+    <section className="relative py-[14px] ">
       <div className="bg-white">
         <Swiper
           modules={[Navigation, Autoplay, Pagination]}
@@ -40,7 +39,7 @@ const Banner = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="banner-pagination !p-4 flex justify-center"></div>
+        <div className="banner-pagination p-3 flex justify-center gap-1"></div>
 
         <div>
           <button

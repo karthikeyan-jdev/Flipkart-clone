@@ -117,6 +117,23 @@ export const banners = [
       "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/684385d69537e9fc.jpg?q=60",
   },
 ];
+export const banners2 = [
+  {
+    id: 1,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/45348602ad4b2259.jpg?q=60",
+  },
+  {
+    id: 2,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/303d6d8f313d3386.jpg?q=60",
+  },
+  {
+    id: 3,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/684385d69537e9fc.jpg?q=60",
+  },
+];
 
 export const smartphones = [
   {

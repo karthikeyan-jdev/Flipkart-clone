@@ -50,7 +50,6 @@ const AppRouter = createBrowserRouter([
         path: "details/local/:id",
         element: <ProductDetails type="local" />,
       },
-
       {
         path: "profile",
         element: <Profile />,

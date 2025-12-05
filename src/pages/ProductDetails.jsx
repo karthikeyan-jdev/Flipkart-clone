@@ -28,7 +28,6 @@ const ProductDetails = ({ type }) => {
   if (type === "api" && error) {
     return <p className="text-red-500">{error}</p>;
   }
-
   // Local product error
   if (!product) {
     return <p className="text-red-500">Product not found</p>;
