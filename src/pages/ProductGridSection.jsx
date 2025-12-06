@@ -13,7 +13,7 @@ const ProductGridSection = () => {
     <Loading />
   ) : (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-3.5">
         <ProductGrid
           headline={"Discounts For You"}
           data={data}
@@ -34,7 +34,7 @@ const ProductGridSection = () => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-2">
         <ProductGrid
           headline={"Best Gadgets & Appliances"}
           data={data}

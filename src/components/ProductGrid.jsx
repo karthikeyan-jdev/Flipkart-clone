@@ -6,7 +6,7 @@ const ProductGrid = ({ headline, data, start, end }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="my-2 sm:m-1 sm:p-3 bg-white">
+    <div className=" my-1 sm:my-1.5 sm:m-1 p-2.5 sm:p-3 bg-white">
       <div className="flex justify-between items-center">
         <h6 className="py-3 text-lg lg:text-xl font-semibold">{headline}</h6>
         <button
