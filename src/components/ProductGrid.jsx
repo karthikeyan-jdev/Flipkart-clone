@@ -15,7 +15,7 @@ const ProductGrid = ({ headline, data, start, end }) => {
             navigate("/categorylist");
           }}
         >
-          <ChevronRight size={22}/>
+          <ChevronRight size={22} />
         </button>
       </div>
 
@@ -33,14 +33,13 @@ const ProductGrid = ({ headline, data, start, end }) => {
                 <div className="flex justify-center flex-1 p-5 md:pb-3">
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={item.title.split(" ")[0]}
                     className="sm:h-[150px] w-full object-contain"
                   />
                 </div>
 
                 <p className="line-clamp-1 text-[14px]">{item.title}</p>
                 <p className="text-green-700 font-semibold text-[14px]">
-                  {" "}
                   ₹{Math.floor(Number(item.price))}
                 </p>
               </div>

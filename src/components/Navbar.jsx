@@ -44,20 +44,25 @@ const Navbar = () => {
   }, []);
   return (
     <section className="relative">
-      {" "}
+      <div
+        className={`fixed inset-0 z-20 transition-opacity duration-300
+      ${
+        menu
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      }
+    `}
+        onClick={() => setMenu(false)}
+      />{" "}
       <nav
         ref={navRef}
-        className="flex justify-around xl:justify-center items-center h-14 bg-white gap-2
-     fixed top-0 left-0 w-full z-40 transition-shadow duration-300"
+        className="flex justify-around xl:justify-center items-center px-5 pr-10b h-14 bg-white gap-2
+     fixed top-0 left-0 w-full z-30 transition-shadow duration-300"
       >
         {/*box-1 three line & logo  */}
         <div className="flex items-center">
           {/* three /ine */}
-          <div
-            className="md:hidden"
-            onMouseEnter={() => setMenu(true)}
-            onMouseLeave={() => setMenu(false)}
-          >
+          <div className="md:hidden" onClick={() => setMenu(true)}>
             <IoReorderThreeOutline className="text-[30px]" />
           </div>
           {/* logo */}
@@ -65,6 +70,7 @@ const Navbar = () => {
             onClick={() => {
               navigate("/");
             }}
+            className="pr-5"
           >
             <img
               src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg"
@@ -101,7 +107,7 @@ const Navbar = () => {
               onClick={() => (user ? navigate("/profile") : navigate("/login"))}
             />
 
-            <div className="md:relative flex items-center gap-1.5">
+            <div className="md:relative flex items-center gap-1.5 ">
               <button
                 className="text-[16px] text-gray-600  tracking-tight font-[550] cursor-pointer"
                 onClick={() => (user ? undefined : navigate("/login"))}
@@ -121,7 +127,7 @@ const Navbar = () => {
               <ul
                 onMouseEnter={() => setMenu(true)}
                 onMouseLeave={() => setMenu(false)}
-                className={` absolute top-2 left-0 h-[120vh] md:h-auto md:top-5 md:left-1  bg-white text-[14px] rounded shadow 
+                className={` absolute top-2 left-0  h-[120vh] md:h-auto md:top-5 md:left-1  bg-white text-[14px] rounded shadow 
                           transition-all duration-200 sm:duration-300 ease-out origin-left sm:origin-top ${
                             menu
                               ? "opacity-100 scale-y-100 translate-y-0 pointer-events-auto"

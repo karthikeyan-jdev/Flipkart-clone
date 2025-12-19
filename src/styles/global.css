@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"); */
 
 body {
   @apply bg-gray-100 text-gray-800 font-opensans;
@@ -31,6 +31,7 @@ button {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 
 .section-con {
   @apply mx-auto w-full md:max-w-[950px] lg:max-w-[1200px] xl:max-w-[1400px] 2xl:max-w-[1500px];

@@ -7,6 +7,7 @@ const ProductGridSection = () => {
   const { data, error, loading } = useFetchApi(
     "https://fakestoreapi.com/products"
   );
+
   if (error) return <p className="text-red-500">{error}</p>;
 
   return loading ? (
