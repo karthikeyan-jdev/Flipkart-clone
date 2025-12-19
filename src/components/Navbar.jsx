@@ -194,15 +194,15 @@ const Navbar = () => {
           </Link>
 
           {/*Become a Seller  */}
-          <Link
+          <div
             className="hidden md:flex  items-center gap-2 ml-3"
-            onClick={() => navigate("/becomeASeller")}
+            onClick={() => navigate("/becomeASellers")}
           >
             <Store size={"26px"} />
             <span className=" tracking-tight hidden xl:block text-[16px] font-semibold text-gray-700">
               Become a Seller
             </span>
-          </Link>
+          </div>
 
           {/*threeDotMenu  */}
           <div
