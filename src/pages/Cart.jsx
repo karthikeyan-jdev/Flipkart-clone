@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCart } from "../context/CardContext";
 import CartProductCard from "./CartProductCard";
 import emptyCart from "../assets/img/emptyCart.png";
@@ -27,7 +27,10 @@ const Cart = () => {
             {/*cart box */}
             <div className="bg-white max-w-[700px]">
               {cart.map((item) => (
-                <CartProductCard key={item.id} item={item} />
+                <CartProductCard
+                  key={`${item.source}-${item.id}`}
+                  item={item}
+                />
               ))}
             </div>
           </div>

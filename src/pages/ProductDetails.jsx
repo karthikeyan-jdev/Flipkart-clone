@@ -14,13 +14,26 @@ const ProductDetails = ({ type }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const normalizeProduct = (product, source) => ({
+    id: product.id,
+    title: product.title,
+    description: product.description,
+    price: product.price,
+    image: product.image,
+    category: product.category,
+    rating: product.rating,
+    source,
+  });
+  console.log(normalizeProduct);
+
   const apiUrl = `https://fakestoreapi.com/products/${id}`;
   const { data, loading, error } = useFetchApi(type === "api" ? apiUrl : null);
 
   const localProduct =
     type === "local" ? smartphones.find((p) => p.id === Number(id)) : null;
+  console.log(type);
 
-  const product = type === "api" ? data : localProduct;
+  const rawProduct = type === "api" ? data : localProduct;
 
   if (loading) return <Loading />;
 
@@ -29,9 +42,10 @@ const ProductDetails = ({ type }) => {
     return <p className="text-red-500">{error}</p>;
   }
   // Local product error
-  if (!product) {
+  if (!rawProduct) {
     return <p className="text-red-500">Product not found</p>;
   }
+  const product = normalizeProduct(rawProduct, type);
 
   return (
     <section className="section-con">
@@ -66,7 +80,7 @@ const ProductDetails = ({ type }) => {
                   onClick={(e) => {
                     e.stopPropagation();
                     addToCart(product);
-                    navigate("/cart");
+                    navigate(`/cart`);
                   }}
                   className="text-[18px] bg-amber-300 text-white py-[14px]"
                 >

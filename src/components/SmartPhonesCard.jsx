@@ -34,7 +34,7 @@ const SmartPhonesCard = ({ item }) => {
             {item?.title?.split("-")[0] || "No title"}
           </h1>
           <h1 className="text-gray-500 text-[13px] md:text-black md:font-semibold">
-            {item?.price || "No price info"}
+            {item?.startingPrice || "No price info"}
           </h1>
         </div>
         <div className="!p-[10px] md:hidden">

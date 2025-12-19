@@ -14,6 +14,7 @@ import Wishlist from "../pages/Wishlist";
 import SmartPhonesList from "../pages/SmartPhonesList";
 import MobileShortCut from "../pages/MobileShortCut";
 import Signup from "../pages/Signup";
+import CardProductCard from "../pages/CartProductCard";
 
 const AppRouter = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "details/local/:id",
         element: <ProductDetails type="local" />,
+      },
+      {
+        path: "details/:type/:id",
+        element: <ProductDetails type="api" />,
       },
       {
         path: "profile",

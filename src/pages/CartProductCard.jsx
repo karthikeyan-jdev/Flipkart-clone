@@ -1,8 +1,7 @@
 import { CirclePoundSterling } from "lucide-react";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCart } from "../context/CardContext";
-import { remove } from "dom/lib/mutation";
 
 const CardProductCard = ({ item }) => {
   const navigate = useNavigate();
@@ -14,7 +13,7 @@ const CardProductCard = ({ item }) => {
       <div
         className=" flex gap-2 border-gray-200 rounded-md p-2 md:p-5"
         onClick={() => {
-          navigate(`/details/api/${item.id}`);
+          navigate(`/details/${item.source}/${item.id}`);
         }}
       >
         {/* images*/}

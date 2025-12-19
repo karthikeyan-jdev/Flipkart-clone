@@ -140,7 +140,8 @@ export const smartphones = [
     id: 1,
     title:
       "OPPO K13x 5G - 6000mAh and 45W SUPERVOOC Charger & AI (Breeze Blue, 128 GB) (6 GB RAM)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description:
       "OPPO K13x 5G smartphone with 6000mAh battery and 45W SUPERVOOC charging.",
     category: "smartphones",
@@ -150,7 +151,8 @@ export const smartphones = [
   {
     id: 2,
     title: "MOTOROLA Edge 60 Pro - (Pantone Sparkling Grape, 256 GB)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description:
       "MOTOROLA Edge 60 Pro smartphone with Pantone Sparkling Grape finish.",
     category: "smartphones",
@@ -160,7 +162,8 @@ export const smartphones = [
   {
     id: 3,
     title: "realme P4 5G - (Steel Grey, 128 GB) (6 GB RAM)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description: "realme P4 5G smartphone in Steel Grey with 6GB RAM.",
     category: "smartphones",
     image:
@@ -170,7 +173,8 @@ export const smartphones = [
     id: 4,
     title:
       "OPPO K13 5G - 7000mAh and 80W SUPERVOOC Charger In-The-Box (Icy Purple, 128 GB) (8 GB RAM)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description:
       "OPPO K13 5G smartphone with 7000mAh battery and 80W SUPERVOOC charger.",
     category: "smartphones",
@@ -180,7 +184,8 @@ export const smartphones = [
   {
     id: 5,
     title: "Moto G96 5G -(Midnight Blue, 128 GB) (6 GB RAM)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description: "Moto G96 5G smartphone in Midnight Blue with 6GB RAM.",
     category: "smartphones",
     image:
@@ -189,7 +194,8 @@ export const smartphones = [
   {
     id: 6,
     title: "realme P3x 5G -(Midnight Blue, 128 GB) (6 GB RAM)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description: "realme P3x 5G smartphone in Midnight Blue with 6GB RAM.",
     category: "smartphones",
     image:
@@ -199,7 +205,8 @@ export const smartphones = [
     id: 7,
     title:
       "Samsung Galaxy A3 - 6000mAh and 45W SUPERVOOC Charger & AI (Breeze Blue, 128 GB) (6 GB RAM)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description:
       "Samsung Galaxy A3 smartphone with 6000mAh battery and 45W charger.",
     category: "smartphones",
@@ -210,7 +217,8 @@ export const smartphones = [
     id: 8,
     title:
       "realme P4 Pro 5G - 6000mAh and 45W SUPERVOOC Charger & AI (Breeze Blue, 128 GB) (6 GB RAM)",
-    price: "From 9,499*",
+    startingPrice: "From 9,499*",
+    price: "From 19,499*",
     description:
       "realme P4 Pro 5G smartphone with 6000mAh battery and 45W fast charging.",
     category: "smartphones",
