@@ -40,7 +40,7 @@ const ProductGrid = ({ headline, data, start, end, offers=[] }) => {
                 </div>
 
                 <p className="line-clamp-1 text-[14px]">{item.title}</p>
-                <p className="text-green-700 font-semibold text-[14px]">
+                <p className="text-green-700 font-semibold text-[14px] line-clamp-1">
                   {currentOffer?.offer}
                 </p>
               </div>
