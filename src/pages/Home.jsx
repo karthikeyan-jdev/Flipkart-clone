@@ -1,13 +1,13 @@
 import React from "react";
 import Banner from "../components/Banner";
 import Category from "../components/Category";
-import ProductGridSection from "./ProductGridSection";
+import ProductGridSection from "../components/ProductGridSection";
 import ProductBanners from "../components/ProductBanners";
 import { topBanners } from "../constant/data";
 import { productCategorys } from "../constant/data";
-import LocalProduct from "./LocalProduct";
+import LocalProduct from "../components/LocalProduct";
 import { banner1, banner2, banner3 } from "../constant/banners";
-import ProductList from "./ProuctContainer";
+import ProductList from "../components/ProuctContainer";
 import { dealsData } from "../constant/deals";
 
 const Home = () => {

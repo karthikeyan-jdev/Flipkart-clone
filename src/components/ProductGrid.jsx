@@ -2,9 +2,8 @@ import { ChevronRight } from "lucide-react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ProductGrid = ({ headline, data, start, end }) => {
+const ProductGrid = ({ headline, data, start, end, offers=[] }) => {
   const navigate = useNavigate();
-
   return (
     <div className=" my-1 sm:my-1.5 sm:m-1 p-2.5 sm:p-3 bg-white">
       <div className="flex justify-between items-center">
@@ -21,7 +20,9 @@ const ProductGrid = ({ headline, data, start, end }) => {
 
       <div className="grid grid-cols-4 lg:grid-cols-2 gap-2">
         {Array.isArray(data) &&
-          data.slice(start, end).map((item) => {
+          data.slice(start, end).map((item, index) => {
+            const currentOffer = offers[index]; 
+
             return (
               <div
                 key={item.id}
@@ -40,7 +41,7 @@ const ProductGrid = ({ headline, data, start, end }) => {
 
                 <p className="line-clamp-1 text-[14px]">{item.title}</p>
                 <p className="text-green-700 font-semibold text-[14px]">
-                  ₹{Math.floor(Number(item.price))}
+                  {currentOffer?.offer}
                 </p>
               </div>
             );

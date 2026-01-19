@@ -1,11 +1,13 @@
 import React from "react";
 import useFetchApi from "../hooks/useFetchApi";
-import ProductGrid from "../components/ProductGrid";
-import Loading from "../components/Loading";
-import ProductBanners from "../components/ProductBanners";
+import ProductGrid from "./ProductGrid";
+import Loading from "./Loading";
+import ProductBanners from "./ProductBanners";
 import { banner2 } from "../constant/banners";
 import ProductList from "./ProuctContainer";
 import { dealsData } from "../constant/deals";
+import { offers } from "../constant/data";
+
 const ProductGridSection = () => {
   const { data, error, loading } = useFetchApi(
     "https://fakestoreapi.com/products"
@@ -23,12 +25,14 @@ const ProductGridSection = () => {
           data={data}
           start={0}
           end={4}
+          offers={offers}
         />
         <ProductGrid
           headline={"Keep Yourself Warm"}
           data={data}
           start={4}
           end={8}
+          offers={offers}
         />
         <div className="lg:hidden xl:block">
           <ProductGrid
@@ -36,6 +40,7 @@ const ProductGridSection = () => {
             data={data}
             start={16}
             end={20}
+            offers={offers}
           />
         </div>
       </div>
@@ -44,6 +49,7 @@ const ProductGridSection = () => {
         headline={"Appliances"}
         smartphones={dealsData}
         routerpath={"deals"}
+        offers={offers}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
@@ -52,12 +58,14 @@ const ProductGridSection = () => {
           data={data}
           start={8}
           end={12}
+          offers={offers}
         />
         <ProductGrid
           headline={"Shop Your Favories"}
           data={data}
           start={12}
           end={16}
+          offers={offers}
         />
         <div className="mx-auto w-[80%] xl:w-auto lg:hidden xl:block">
           <img

@@ -101,17 +101,52 @@ export const innerProductCategorys = [
 ];
 
 export const topBanners = [
-  { id: 1, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/24a5a9688f4c71ff.png?q=90" },
-  { id: 2, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d55950c06f414168.jpg?q=90" },
-  { id: 3, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/1b0467352c3d4e57.png?q=90" },
-  { id: 4, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/87d6fd1776f5ad7a.jpg?q=90" },
-  { id: 5, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/73d29878d267ebc6.png?q=90" },
-  { id: 6, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/9779aea533001495.jpg?q=90" },
-  { id: 7, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/349d0b763b3c6571.jpg?q=90" },
-  { id: 8, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/24a5a9688f4c71ff.png?q=90" },
-  { id: 9, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d55950c06f414168.jpg?q=90" }
+  {
+    id: 1,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/24a5a9688f4c71ff.png?q=90",
+  },
+  {
+    id: 2,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d55950c06f414168.jpg?q=90",
+  },
+  {
+    id: 3,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/1b0467352c3d4e57.png?q=90",
+  },
+  {
+    id: 4,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/87d6fd1776f5ad7a.jpg?q=90",
+  },
+  {
+    id: 5,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/73d29878d267ebc6.png?q=90",
+  },
+  {
+    id: 6,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/9779aea533001495.jpg?q=90",
+  },
+  {
+    id: 7,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/349d0b763b3c6571.jpg?q=90",
+  },
+  {
+    id: 8,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/24a5a9688f4c71ff.png?q=90",
+  },
+  {
+    id: 9,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d55950c06f414168.jpg?q=90",
+  },
 ];
-
 
 export const smartphones = [
   {
@@ -235,5 +270,23 @@ export const productbBannerGrid = [
     id: 6,
     imgUrl:
       "https://rukminim2.flixcart.com/fk-p-flap/1040/560/image/c5d0453a8ad30643.jpg?q=60",
+  },
+];
+export const offers = [
+  {
+    id: 1,
+    offer: "Min 50% off",
+  },
+  {
+    id: 2,
+    offer: "Top picks",
+  },
+  {
+    id: 3,
+    offer: "Min 50% off",
+  },
+  {
+    id: 4,
+    offer: "Special offer",
   },
 ];

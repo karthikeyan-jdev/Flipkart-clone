@@ -1,9 +1,9 @@
 import { CirclePoundSterling } from "lucide-react";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CardContext";
 
-const CardProductCard = ({ item }) => {
+const CartProductCard = ({ item }) => {
   const navigate = useNavigate();
   const [remove, setRemove] = useState(false);
   const { removeFromCart, updateQty } = useCart();
@@ -138,4 +138,4 @@ const CardProductCard = ({ item }) => {
   );
 };
 
-export default CardProductCard;
+export default CartProductCard;

@@ -1,5 +1,5 @@
 import React from "react";
-import SmartPhonesCard from "../components/SmartPhonesCard";
+import LocalProductCard from "./LocalProductCard";
 
 const ProuctContainer = ({ headline, products, routerpath }) => {
   return (
@@ -9,7 +9,13 @@ const ProuctContainer = ({ headline, products, routerpath }) => {
       </h1>
       <div className="md:flex md:overflow-x-auto scrollbar-hide py-1 ">
         {products?.map((product) => {
-          return <SmartPhonesCard item={product} routerpath={routerpath} key={product.id} />;
+          return (
+            <LocalProductCard
+              item={product}
+              routerpath={routerpath}
+              key={product.id}
+            />
+          );
         })}
       </div>
     </div>

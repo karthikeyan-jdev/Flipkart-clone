@@ -1,6 +1,6 @@
 import React from "react";
-import ProductBanners from "../components/ProductBanners";
-import Ad from "../components/Ad";
+import ProductBanners from "./ProductBanners";
+import Ad from "./Ad";
 import ProductList from "./ProuctContainer";
 import { smartphones } from "../constant/data";
 

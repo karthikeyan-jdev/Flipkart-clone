@@ -5,7 +5,7 @@ import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
 import { useCart } from "../context/CardContext";
-import SmartPhonesList from "./ProuctContainer";
+import SmartPhonesList from "../components/ProuctContainer";
 import { smartphones } from "../constant/data";
 import { dealsData } from "../constant/deals";
 

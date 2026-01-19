@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CardContext";
-import CartProductCard from "./CartProductCard";
 import emptyCart from "../assets/img/emptyCart.png";
+import CartProductCard from "../components/CartProductCard";
 
 const Cart = () => {
   const { cart } = useCart();
