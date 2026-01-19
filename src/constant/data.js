@@ -61,16 +61,86 @@ export const productCategorys = [
   },
 ];
 
+export const innerProductCategorys = [
+  {
+    id: 1,
+    title: "Eletronics",
+  },
+  {
+    id: 2,
+    title: "TV & Applicances",
+  },
+  {
+    id: 3,
+    title: "Men",
+  },
+  {
+    id: 4,
+    title: "Women",
+  },
+  {
+    id: 5,
+    title: "Baby & kids",
+  },
+  {
+    id: 6,
+    title: "Home & Furniture",
+  },
+  {
+    id: 7,
+    title: "Sports, Books & More",
+  },
+  {
+    id: 8,
+    title: "Flights",
+  },
+  {
+    id: 9,
+    title: "Offer Zone",
+  },
+];
+
 export const topBanners = [
-  { id: 1, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/24a5a9688f4c71ff.png?q=90" },
-  { id: 2, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d55950c06f414168.jpg?q=90" },
-  { id: 3, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/1b0467352c3d4e57.png?q=90" },
-  { id: 4, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/87d6fd1776f5ad7a.jpg?q=90" },
-  { id: 5, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/73d29878d267ebc6.png?q=90" },
-  { id: 6, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/9779aea533001495.jpg?q=90" },
-  { id: 7, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/349d0b763b3c6571.jpg?q=90" },
-  { id: 8, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/24a5a9688f4c71ff.png?q=90" },
-  { id: 9, imgUrl: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/d55950c06f414168.jpg?q=90" }
+  {
+    id: 1,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/45348602ad4b2259.jpg?q=60",
+  },
+  {
+    id: 2,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/87d6fd1776f5ad7a.jpg?q=60",
+  },
+  {
+    id: 3,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/0f6c1a6a7c9a4a3d.jpg?q=60",
+  },
+  {
+    id: 4,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/9c5e0c8d7c9fbb6e.jpg?q=60",
+  },
+  {
+    id: 5,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/4b1f6e3c9c6e7f2a.jpg?q=60",
+  },
+  {
+    id: 6,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/5d8c2f9a3b6e1c4d.jpg?q=60",
+  },
+  {
+    id: 7,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/2a7c9d4e6b1f3c8a.jpg?q=60",
+  },
+  {
+    id: 8,
+    imgUrl:
+      "https://rukminim2.flixcart.com/fk-p-flap/2020/340/image/1c4d6e8f2a7b9c3e.jpg?q=60",
+  },
 ];
 
 export const smartphones = [
