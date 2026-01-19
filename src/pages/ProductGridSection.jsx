@@ -2,7 +2,10 @@ import React from "react";
 import useFetchApi from "../hooks/useFetchApi";
 import ProductGrid from "../components/ProductGrid";
 import Loading from "../components/Loading";
-
+import ProductBanners from "../components/ProductBanners";
+import { banner2 } from "../constant/banners";
+import ProductList from "./SmartPhonesList";
+import { dealsData } from "../constant/deals";
 const ProductGridSection = () => {
   const { data, error, loading } = useFetchApi(
     "https://fakestoreapi.com/products"
@@ -14,7 +17,7 @@ const ProductGridSection = () => {
     <Loading />
   ) : (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-3.5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 ">
         <ProductGrid
           headline={"Discounts For You"}
           data={data}
@@ -27,15 +30,23 @@ const ProductGridSection = () => {
           start={4}
           end={8}
         />
-        <div className="mx-auto w-[80%] xl:w-auto lg:hidden xl:block">
-          <img
-            src="https://cdn0.desidime.com/cdn-cgi/image/fit=contain,f=auto,onerror=redirect,w=1200,h=675,q=90/attachments/photos/1142095/original/Screenshot2024-10-16152627.png"
-            alt=""
-            className="h-80 w-full sm:h-full sm:p-2"
+        <div className="lg:hidden xl:block">
+          <ProductGrid
+            headline={"Best Value Deals on Fashion"}
+            data={data}
+            start={16}
+            end={20}
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 pt-2">
+      <ProductBanners banner={banner2} />
+      <ProductList
+        headline={"Appliances"}
+        smartphones={dealsData}
+        routerpath={"deals"}
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
         <ProductGrid
           headline={"Best Gadgets & Appliances"}
           data={data}
@@ -48,12 +59,11 @@ const ProductGridSection = () => {
           start={12}
           end={16}
         />
-        <div className="lg:hidden xl:block">
-          <ProductGrid
-            headline={"Best Value Deals on Fashion"}
-            data={data}
-            start={16}
-            end={20}
+        <div className="mx-auto w-[80%] xl:w-auto lg:hidden xl:block">
+          <img
+            src="https://cdn0.desidime.com/cdn-cgi/image/fit=contain,f=auto,onerror=redirect,w=1200,h=675,q=90/attachments/photos/1142095/original/Screenshot2024-10-16152627.png"
+            alt=""
+            className="h-80 w-full sm:h-full sm:p-2"
           />
         </div>
       </div>

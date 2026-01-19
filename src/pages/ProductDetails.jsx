@@ -7,6 +7,7 @@ import Loading from "../components/Loading";
 import { useCart } from "../context/CardContext";
 import SmartPhonesList from "./SmartPhonesList";
 import { smartphones } from "../constant/data";
+import { dealsData } from "../constant/deals";
 
 const ProductDetails = ({ type }) => {
   const { isFavorite, toggleFavorite } = useFavorite();
@@ -24,17 +25,18 @@ const ProductDetails = ({ type }) => {
     rating: product.rating,
     source,
   });
-  console.log(normalizeProduct);
 
   const apiUrl = `https://fakestoreapi.com/products/${id}`;
   const { data, loading, error } = useFetchApi(type === "api" ? apiUrl : null);
 
   const localProduct =
     type === "local" ? smartphones.find((p) => p.id === Number(id)) : null;
-  console.log(type);
+  const localProduct2 =
+    type === "deals" ? dealsData.find((p) => p.id === Number(id)) : null;
 
-  const rawProduct = type === "api" ? data : localProduct;
-
+  const rawProduct =
+    type === "api" ? data : type === "local" ? localProduct : localProduct2;
+    
   if (loading) return <Loading />;
 
   // API error
@@ -50,9 +52,9 @@ const ProductDetails = ({ type }) => {
   return (
     <section className="section-con">
       <div className="flex justify-center">
-        <div className="lg:flex  bg-white gap-4 pt-3">
+        <div className="lg:flex  bg-white gap-4 lg:gap-2 xl:gap-0 pt-3">
           {/*muti-images */}
-          <div className=" flex lg:ml-4 lg:my-2 justify-center h-[560px]">
+          <div className=" flex lg:ml-4 xl:my-2 justify-center h-[420px] md:h-[480px]">
             <div className="overflow-y-scroll h-[480px] scrollbar-hide hidden xl:block">
               {Array(12)
                 .fill(product.image)
@@ -65,13 +67,13 @@ const ProductDetails = ({ type }) => {
                   />
                 ))}
             </div>
-            <div className="relative min-w-[330px] lg:min-w-[370px] ">
+            <div className="relative w-[60%] sm:w-[46%] md:min-w-[330px] lg:min-w-[370px] ">
               {/* img container */}
               <div className="lg:border-[1px] lg:border-gray-200 py-[14px] flex justify-center">
                 <img
                   src={product.image}
                   alt={product.title}
-                  className="w-full h-[400px]  p-5"
+                  className="w-full h-[300px] md:h-[350px] lg:h-[] p-5"
                 />
               </div>
               {/* btn-container */}
@@ -82,11 +84,11 @@ const ProductDetails = ({ type }) => {
                     addToCart(product);
                     navigate(`/cart`);
                   }}
-                  className="text-[18px] bg-amber-300 text-white py-[14px]"
+                  className="text-[14px] md:text-[16px] bg-amber-300 text-white py-[14px]"
                 >
                   ADD TO CART
                 </button>
-                <button className="text-[18px] bg-orange-500 text-white py-[8px]">
+                <button className="text-[14px] md:text-[16px] bg-orange-500 text-white py-[8px]">
                   BUY NOW
                 </button>
               </div>
@@ -110,7 +112,7 @@ const ProductDetails = ({ type }) => {
           </div>
 
           {/* descreption */}
-          <div className="flex flex-col gap-[8px] ml-3 lg:h-[560px] lg:overflow-y-auto scrollbar-hide  ">
+          <div className="flex flex-col gap-[8px] ml-3 xl:ml-0 lg:h-[560px] lg:overflow-y-auto scrollbar-hide  ">
             <h1 className="text-[18px]">{product.title}</h1>
             <p className="text-gray-500 text-[14px]">
               {" "}
@@ -225,7 +227,10 @@ const ProductDetails = ({ type }) => {
         </div>
       </div>
       <div className="py-4 hidden lg:block">
-        <SmartPhonesList headline={"Similer Products"} />
+        <SmartPhonesList
+          headline={"Similer Products"}
+          smartphones={smartphones}
+        />
       </div>
     </section>
   );

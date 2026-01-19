@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import Home from "../pages/Home";
-import Products from "../pages/Products";
 import Notfound from "../pages/Notfound";
 import ProductDetails from "../pages/ProductDetails";
 import Profile from "../pages/Profile";
@@ -14,7 +13,7 @@ import Wishlist from "../pages/Wishlist";
 import SmartPhonesList from "../pages/SmartPhonesList";
 import MobileShortCut from "../pages/MobileShortCut";
 import Signup from "../pages/Signup";
-import CardProductCard from "../pages/CartProductCard";
+import LocalProduct from "../pages/LocalProduct";
 
 const AppRouter = createBrowserRouter([
   {
@@ -34,8 +33,8 @@ const AppRouter = createBrowserRouter([
         element: <CategoryDetails />,
       },
       {
-        path: "products", //Local Array(Smart phone) Data
-        element: <Products />,
+        path: "localProduct", //Local Array(Smart phone) Data
+        element: <LocalProduct />,
         children: [
           {
             index: true,
@@ -52,8 +51,8 @@ const AppRouter = createBrowserRouter([
         element: <ProductDetails type="local" />,
       },
       {
-        path: "details/:type/:id",
-        element: <ProductDetails type="api" />,
+        path: "details/deals/:id",
+        element: <ProductDetails type="deals" />,
       },
       {
         path: "profile",

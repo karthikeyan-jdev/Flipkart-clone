@@ -1,8 +1,7 @@
 import React from "react";
-import { productCategorys } from "../constant/data";
 import { useNavigate } from "react-router-dom";
 
-const Category = () => {
+const Category = ({productCategorys}) => {
   const navigate = useNavigate();
  
   return (

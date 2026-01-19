@@ -9,7 +9,6 @@ const Header = () => {
 
   const isHomePage = location.pathname === "/";
 
-
   return (
     <>
       {isHomePage ? (

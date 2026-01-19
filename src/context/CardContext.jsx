@@ -23,7 +23,7 @@ export const CartProvider = ({ children }) => {
         (p) => p.id === item.id && p.source === item.source
       );
       if (exist) {
-        // already in cart → increase qty
+        // already in cart, increase qty
         return prev.map((p) =>
           p.id === item.id && p.source === item.source
             ? { ...p, qty: p.qty + 1 }

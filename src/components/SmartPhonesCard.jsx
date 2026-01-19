@@ -2,7 +2,7 @@ import { ChevronRight } from "lucide-react";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SmartPhonesCard = ({ item }) => {
+const SmartPhonesCard = ({ item,routerpath }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.scrollTo(0, 0);
@@ -13,7 +13,7 @@ const SmartPhonesCard = ({ item }) => {
   if (!item) return null;
 
   const handleClick = () => {
-    navigate(`/details/local/${item.id}`);
+    navigate(`/details/${routerpath}/${item.id}`);
   };
 
   return (
@@ -21,12 +21,12 @@ const SmartPhonesCard = ({ item }) => {
       className="group md:min-w-[160px] lg:min-w-[230px] flex-shrink-0"
       onClick={handleClick}
     >
-      <div className="!py-[12px] !mx-[30px] lg:mx-[0px!important] flex items-center md:flex-col">
+      <div className="py-[12px] !mx-[30px] lg:mx-[0px!important] flex items-center md:flex-col">
         <div>
           <img
             src={item?.image || "/placeholder.png"}
             alt={item?.title || "Product image"}
-            className="h-[48px] md:h-[90px] lg:h-[132px] object-contain transition-transform lg:group-hover:scale-105"
+            className="h-[48px] md:h-[90px] lg:h-[132px] w-auto lg:w-40 object-contain transition-transform lg:group-hover:scale-105"
           />
         </div>
         <div className="w-full !px-5 md:text-center xl:mb-[50px!important] md:mt-[12px!important]">
