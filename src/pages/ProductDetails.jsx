@@ -5,7 +5,7 @@ import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
 import { useCart } from "../context/CardContext";
-import SmartPhonesList from "./SmartPhonesList";
+import SmartPhonesList from "./ProuctContainer";
 import { smartphones } from "../constant/data";
 import { dealsData } from "../constant/deals";
 
@@ -36,7 +36,7 @@ const ProductDetails = ({ type }) => {
 
   const rawProduct =
     type === "api" ? data : type === "local" ? localProduct : localProduct2;
-    
+
   if (loading) return <Loading />;
 
   // API error

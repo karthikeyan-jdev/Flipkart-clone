@@ -1,7 +1,7 @@
 import React from "react";
 import ProductBanners from "../components/ProductBanners";
 import Ad from "../components/Ad";
-import ProductList from "./SmartPhonesList";
+import ProductList from "./ProuctContainer";
 import { smartphones } from "../constant/data";
 
 const LocalProduct = () => {
@@ -12,7 +12,7 @@ const LocalProduct = () => {
       <div className="w-full xl:w-[80%] md:my-[auto]  md:items-center">
         <ProductList
           headline={"Best deal on smartphones"}
-          smartphones={smartphones}
+          products={smartphones}
           routerpath={"local"}
         />
       </div>

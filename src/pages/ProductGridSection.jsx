@@ -4,7 +4,7 @@ import ProductGrid from "../components/ProductGrid";
 import Loading from "../components/Loading";
 import ProductBanners from "../components/ProductBanners";
 import { banner2 } from "../constant/banners";
-import ProductList from "./SmartPhonesList";
+import ProductList from "./ProuctContainer";
 import { dealsData } from "../constant/deals";
 const ProductGridSection = () => {
   const { data, error, loading } = useFetchApi(

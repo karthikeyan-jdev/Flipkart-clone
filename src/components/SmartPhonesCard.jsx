@@ -21,12 +21,12 @@ const SmartPhonesCard = ({ item,routerpath }) => {
       className="group md:min-w-[160px] lg:min-w-[230px] flex-shrink-0"
       onClick={handleClick}
     >
-      <div className="py-[12px] !mx-[30px] lg:mx-[0px!important] flex items-center md:flex-col">
+      <div className="py-[12px] mx-[30px] lg:mx-[0px] flex items-center md:flex-col">
         <div>
           <img
             src={item?.image || "/placeholder.png"}
             alt={item?.title || "Product image"}
-            className="h-[48px] md:h-[90px] lg:h-[132px] w-auto lg:w-40 object-contain transition-transform lg:group-hover:scale-105"
+            className="h-[48px] md:h-[90px] lg:h-[132px] w-[38px] md:w-40 object-contain transition-transform lg:group-hover:scale-105"
           />
         </div>
         <div className="w-full !px-5 md:text-center xl:mb-[50px!important] md:mt-[12px!important]">

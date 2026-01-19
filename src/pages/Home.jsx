@@ -7,7 +7,7 @@ import { topBanners } from "../constant/data";
 import { productCategorys } from "../constant/data";
 import LocalProduct from "./LocalProduct";
 import { banner1, banner2, banner3 } from "../constant/banners";
-import ProductList from "./SmartPhonesList";
+import ProductList from "./ProuctContainer";
 import { dealsData } from "../constant/deals";
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
       <ProductBanners banner={banner2} />
       <ProductList
         headline={"Appliances"}
-        smartphones={dealsData}
+        products={dealsData}
         routerpath={"deals"}
       />
       <ProductBanners banner={banner3} />

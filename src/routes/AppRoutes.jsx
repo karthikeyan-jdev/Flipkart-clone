@@ -10,7 +10,7 @@ import CategoryDetails from "../pages/CategoryDetails";
 import Category from "../components/Category";
 import BecomeASeller from "../pages/BecomeASeller";
 import Wishlist from "../pages/Wishlist";
-import SmartPhonesList from "../pages/SmartPhonesList";
+import SmartPhonesList from "../pages/ProuctContainer";
 import MobileShortCut from "../pages/MobileShortCut";
 import Signup from "../pages/Signup";
 import LocalProduct from "../pages/LocalProduct";
