@@ -73,7 +73,7 @@ const ProductCard = ({ item }) => {
               {" "}
               <Trash2
                 onClick={() => {
-                  removeFromFavorite(item.id);
+                  removeFromFavorite(item);
                 }}
               />
             </button>

@@ -27,10 +27,12 @@ const cartSlice = createSlice({
     },
     //  Change quantity for +-
     updateQty(state, action) {
-      const { id, qty } = action.payload;
-      const item = state.cart.find((item) => item.id === id);
+      const { id, source, qty } = action.payload;
+      const item = state.cart.find(
+        (item) => item.id === id && item.source === source,
+      );
       if (item) {
-        item.qty = qty;
+        item.qty = qty; 
       }
       savedCart(state.cart);
     },
@@ -38,13 +40,12 @@ const cartSlice = createSlice({
     removeFromCart(state, action) {
       const { id, source } = action.payload;
       console.log(action);
-      
+
       state.cart = state.cart.filter(
         (item) => item.id !== id || item.source !== source,
       );
       savedCart(state.cart);
     },
-    
   },
 });
 export const { addToCart, updateQty, removeFromCart } = cartSlice.actions;

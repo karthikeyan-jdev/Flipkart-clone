@@ -22,20 +22,28 @@ export const FavoriteProvider = ({ children }) => {
   // addToFavorite
   const addToFavorite = (item) => {
     setFavorites((prev) =>
-      prev.find((p) => p.id === item.id) ? prev : [...prev, item]
+      prev.find((p) => p.id === item.id && p.source === item.source)
+        ? prev
+        : [...prev, item],
     );
   };
   //Remove fav
-  const removeFromFavorite = (id) => {
-    setFavorites((prev) => prev.filter((item) => item.id !== id));
+  const removeFromFavorite = (p) => {
+    setFavorites((prev) =>
+      prev.filter((item) => item.id !== p.id || item.source !== p.source),
+    );
   };
 
   // toggleFavorite
   const toggleFavorite = (item) => {
-    const isFav = favorites.some((fav) => fav.id === item.id);
+    const isFav = favorites.some(
+      (fav) => fav.id === item.id && fav.source === item.source,
+    );
 
     setFavorites((prev) =>
-      isFav ? prev.filter((p) => p.id !== item.id) : [...prev, item]
+      isFav
+        ? prev.filter((p) => p.id !== item.id || p.source !== item.source)
+        : [...prev, item],
     );
     if (window.innerWidth >= 1024) {
       if (isFav) {
@@ -47,7 +55,8 @@ export const FavoriteProvider = ({ children }) => {
   };
 
   // boolean
-  const isFavorite = (item) => favorites.some((fav) => fav.id === item.id);
+  const isFavorite = (item) =>
+    favorites.some((fav) => fav.id === item.id && fav.source === item.source);
 
   return (
     <FavoriteContext.Provider

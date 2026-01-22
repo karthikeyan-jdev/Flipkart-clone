@@ -3,7 +3,7 @@ export const dealsData = [
     id: 1,
     title: '55" 4K Smart TVs',
     startingPrice: "From ₹19,749",
-    price: "From ₹19,749",
+    price: "From 19,749",
     description: "Ultra HD Smart TVs with Dolby Vision.",
     category: "television",
     image:
@@ -13,7 +13,7 @@ export const dealsData = [
     id: 2,
     title: "Best-selling Refrigerators",
     startingPrice: "From ₹9,990",
-    price: "From ₹9,990",
+    price: "From 9,990",
     description: "Energy-efficient single & double door refrigerators.",
     category: "refrigerator",
     image:
@@ -23,7 +23,7 @@ export const dealsData = [
     id: 3,
     title: "Microwave Ovens",
     startingPrice: "From ₹4,990",
-    price: "From ₹4,990",
+    price: "From 4,990",
     description: "Solo, grill and convection microwave ovens.",
     category: "microwave",
     image:
@@ -33,7 +33,7 @@ export const dealsData = [
     id: 4,
     title: "Washing Machines",
     startingPrice: "From ₹12,490",
-    price: "From ₹12,490",
+    price: "From 12,490",
     description: "Fully & semi-automatic washing machines.",
     category: "washing-machine",
     image:
@@ -43,7 +43,7 @@ export const dealsData = [
     id: 5,
     title: "Air Conditioners",
     startingPrice: "From ₹27,999",
-    price: "From ₹27,999",
+    price: "From 27,999",
     description: "Inverter split & window ACs.",
     category: "air-conditioner",
     image:
@@ -52,7 +52,7 @@ export const dealsData = [
     id: 6,
     title: "Water Purifiers",
     startingPrice: "From ₹2,712",
-    price: "From ₹2,712",
+    price: "From 2,712",
     description: "RO + UV water purifiers.",
     category: "water-purifier",
     image:
@@ -62,7 +62,7 @@ export const dealsData = [
     id: 7,
     title: "Kitchen Essentials",
     startingPrice: "From ₹299",
-    price: "From ₹299",
+    price: "From 299",
     description: "Cookware, mixers and daily essentials.",
     category: "kitchen",
     image:
@@ -72,7 +72,7 @@ export const dealsData = [
     id: 8,
     title: "Fans & Geysers",
     startingPrice: "From ₹799",
-    price: "From ₹799",
+    price: "From 799",
     description: "Ceiling fans, table fans & water geysers.",
     category: "electronics",
     image:

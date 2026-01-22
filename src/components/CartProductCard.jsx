@@ -72,7 +72,13 @@ const CartProductCard = ({ item }) => {
           <button
             onClick={() => {
               item.qty > 1 &&
-                dispatch(updateQty({ id: item.id, qty: item.qty - 1 }));
+                dispatch(
+                  updateQty({
+                    id: item.id,
+                    source: item.source,
+                    qty: item.qty - 1,
+                  }),
+                );
             }}
             className={`flex  justify-center items-center h-6 px-2 border-1 border-gray-300 rounded-2xl ${
               item.qty === 1 && "bg-gray-200 text-gray-400"
@@ -85,7 +91,13 @@ const CartProductCard = ({ item }) => {
           </div>
           <button
             onClick={() => {
-              dispatch(updateQty({ id: item.id, qty: item.qty + 1 }));
+              dispatch(
+                updateQty({
+                  id: item.id,
+                  source: item.source,
+                  qty: item.qty + 1,
+                }),
+              );
             }}
             className="flex items-center justify-center h-6 px-1.5 border-1 border-gray-300 rounded-2xl"
           >
