@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CardContext";
 import emptyCart from "../assets/img/emptyCart.png";
 import CartProductCard from "../components/CartProductCard";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
-  const { cart } = useCart();
   const navigate = useNavigate();
+  const cart = useSelector((state) => state.cart.cart);
   const hasItems = cart.length > 0;
-
   return (
     <section className="">
       {hasItems ? (

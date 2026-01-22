@@ -1,56 +1,56 @@
-import { createContext, useContext, useEffect, useState } from "react";
+// import { createContext, useContext, useEffect, useState } from "react";
 
-const CartContext = createContext();
+// const CartContext = createContext();
 
-export const useCart = () => useContext(CartContext);
+// export const useCart = () => useContext(CartContext);
 
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+// export const CartProvider = ({ children }) => {
+//   const [cart, setCart] = useState([]);
 
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cart");
-    if (storedCart) setCart(JSON.parse(storedCart));
-  }, []);
+//   useEffect(() => {
+//     const storedCart = localStorage.getItem("cart");
+//     if (storedCart) setCart(JSON.parse(storedCart));
+//   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+//   useEffect(() => {
+//     localStorage.setItem("cart", JSON.stringify(cart));
+//   }, [cart]);
 
-  // ✅ Add item
-  const addToCart = (item) => {
-    setCart((prev) => {
-      const exist = prev.find(
-        (p) => p.id === item.id && p.source === item.source
-      );
-      if (exist) {
-        // already in cart, increase qty
-        return prev.map((p) =>
-          p.id === item.id && p.source === item.source
-            ? { ...p, qty: p.qty + 1 }
-            : p
-        );
-      }
-      return [{ ...item, qty: 1 }, ...prev];
-    });
-  };
+//   //  Add item
+//   const addToCart = (item) => {
+//     setCart((prev) => {
+//       const exist = prev.find(
+//         (p) => p.id === item.id && p.source === item.source
+//       );
+//       if (exist) {
+//         // already in cart, increase qty
+//         return prev.map((p) =>
+//           p.id === item.id && p.source === item.source
+//             ? { ...p, qty: p.qty + 1 }
+//             : p
+//         );
+//       }
+//       return [{ ...item, qty: 1 }, ...prev];
+//     });
+//   };
 
-  // ✅ Change quantity
-  const updateQty = (id, qty) => {
-    setCart((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, qty } : item))
-    );
-  };
+//   //  Change quantity
+//   const updateQty = (id, qty) => {
+//     setCart((prev) =>
+//       prev.map((item) => (item.id === id ? { ...item, qty } : item))
+//     );
+//   };
 
-  // ✅ Remove item
-  const removeFromCart = (id) => {
-    setCart((prev) => prev.filter((item) => item.id !== id));
-  };
+//   //  Remove item
+//   const removeFromCart = (id) => {
+//     setCart((prev) => prev.filter((item) => item.id !== id));
+//   };
 
-  return (
-    <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, updateQty }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
-};
+//   return (
+//     <CartContext.Provider
+//       value={{ cart, addToCart, removeFromCart, updateQty }}
+//     >
+//       {children}
+//     </CartContext.Provider>
+//   );
+// };

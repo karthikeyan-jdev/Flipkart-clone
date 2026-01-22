@@ -5,9 +5,9 @@ import Loading from "../components/Loading";
 import { IoIosArrowDown } from "react-icons/io";
 import { innerProductCategorys } from "../constant/data";
 
-const CategoryDetails = () => {
+const CategoryProducts = () => {
   const { data, error, loading } = useFetchApi(
-    "https://fakestoreapi.com/products"
+    "https://fakestoreapi.com/products",
   );
 
   if (error) return <p className="text-red-500">{error}</p>;
@@ -16,9 +16,9 @@ const CategoryDetails = () => {
     <section className="flex gap-2 p-2">
       {/* side filter */}
       <div className="w-[40%] lg:w-[25%] h-fit bg-white hidden md:block">
-        {innerProductCategorys.map((list,i) => {
+        {innerProductCategorys.map((list, i) => {
           return (
-            <div key={i}  className="flex items-center gap-1 p-5">
+            <div key={i} className="flex items-center gap-1 p-5">
               <h5 className="font-[550]">{list.title}</h5>
               <IoIosArrowDown />
             </div>
@@ -38,4 +38,4 @@ const CategoryDetails = () => {
   );
 };
 
-export default CategoryDetails;
+export default CategoryProducts;

@@ -1,12 +1,13 @@
 import { CirclePoundSterling } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CardContext";
+import { useDispatch } from "react-redux";
+import { removeFromCart, updateQty } from "../store/cartSlice";
 
 const CartProductCard = ({ item }) => {
   const navigate = useNavigate();
   const [remove, setRemove] = useState(false);
-  const { removeFromCart, updateQty } = useCart();
+  const dispatch = useDispatch();
 
   return (
     <div className="group shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -41,8 +42,8 @@ const CartProductCard = ({ item }) => {
               {typeof item.price === "number"
                 ? item.price
                 : item.price
-                ? item.price.split(" ")[1].split("*")[0].trim()
-                : "—"}
+                  ? item.price.split(" ")[1].split("*")[0].trim()
+                  : "—"}
               <span className="pl-2 text-gray-500 text-[13px]">40% Off</span>
             </h1>
             <div className="">
@@ -53,8 +54,8 @@ const CartProductCard = ({ item }) => {
                 {typeof item.price === "number"
                   ? item.price
                   : item.price
-                  ? item.price.split(" ")[1].split("*")[0].trim()
-                  : "—"}{" "}
+                    ? item.price.split(" ")[1].split("*")[0].trim()
+                    : "—"}{" "}
                 + 100 <CirclePoundSterling size={12} color="orange" />{" "}
               </p>
             </div>
@@ -70,7 +71,8 @@ const CartProductCard = ({ item }) => {
         <div className="flex justify-center items-center gap-1.5 w-[160px] min-w-[25%]  ">
           <button
             onClick={() => {
-              item.qty > 1 && updateQty(item.id, item.qty - 1);
+              item.qty > 1 &&
+                dispatch(updateQty({ id: item.id, qty: item.qty - 1 }));
             }}
             className={`flex  justify-center items-center h-6 px-2 border-1 border-gray-300 rounded-2xl ${
               item.qty === 1 && "bg-gray-200 text-gray-400"
@@ -83,7 +85,7 @@ const CartProductCard = ({ item }) => {
           </div>
           <button
             onClick={() => {
-              updateQty(item.id, item.qty + 1);
+              dispatch(updateQty({ id: item.id, qty: item.qty + 1 }));
             }}
             className="flex items-center justify-center h-6 px-1.5 border-1 border-gray-300 rounded-2xl"
           >
@@ -123,7 +125,9 @@ const CartProductCard = ({ item }) => {
                   className="hover:text-red-600 text-[14px]"
                   onClick={(e) => {
                     e.stopPropagation();
-                    removeFromCart(item.id);
+                    dispatch(
+                      removeFromCart({ id: item.id, source: item.source }),
+                    );
                     setRemove(false);
                   }}
                 >

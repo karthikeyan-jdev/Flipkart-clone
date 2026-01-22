@@ -4,16 +4,17 @@ import { Heart, ShieldCheck, Tag, TicketPercent } from "lucide-react";
 import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
-import { useCart } from "../context/CardContext";
 import SmartPhonesList from "../components/ProuctContainer";
 import { smartphones } from "../constant/data";
 import { dealsData } from "../constant/deals";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 
 const ProductDetails = ({ type }) => {
   const { isFavorite, toggleFavorite } = useFavorite();
-  const { addToCart } = useCart();
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const normalizeProduct = (product, source) => ({
     id: product.id,
@@ -81,8 +82,8 @@ const ProductDetails = ({ type }) => {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    addToCart(product);
                     navigate(`/cart`);
+                    dispatch(addToCart(product))
                   }}
                   className="text-[14px] md:text-[16px] bg-amber-300 text-white py-[14px]"
                 >
@@ -229,7 +230,8 @@ const ProductDetails = ({ type }) => {
       <div className="py-4 hidden lg:block">
         <SmartPhonesList
           headline={"Similer Products"}
-          smartphones={smartphones}
+          products={smartphones}
+          routerpath={"local"}
         />
       </div>
     </section>

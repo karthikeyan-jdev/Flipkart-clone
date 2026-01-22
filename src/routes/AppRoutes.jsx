@@ -14,6 +14,7 @@ import SmartPhonesList from "../components/ProuctContainer";
 import MobileShortCut from "../pages/MobileShortCut";
 import Signup from "../pages/Signup";
 import LocalProduct from "../components/LocalProduct";
+import CategoryProducts from "../pages/CategoryDetails";
 
 const AppRouter = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "categorylist", //API Call Data
-        element: <CategoryDetails />,
+        element: <CategoryProducts />,
       },
       {
         path: "localProduct", //Local Array(Smart phone) Data
