@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import useFetchApi from "../hooks/useFetchApi";
 import ProductCard from "../components/ProductCard";
 import Loading from "../components/Loading";

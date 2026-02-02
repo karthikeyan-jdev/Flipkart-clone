@@ -1,20 +1,21 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Heart, ShieldCheck, Tag, TicketPercent } from "lucide-react";
-import { useFavorite } from "../context/WishlistContext";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
 import SmartPhonesList from "../components/ProuctContainer";
 import { smartphones } from "../constant/data";
 import { dealsData } from "../constant/deals";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../store/cartSlice";
+import { toggleFavorite } from "../store/favoriteSlice";
 
 const ProductDetails = ({ type }) => {
-  const { isFavorite, toggleFavorite } = useFavorite();
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.favorites);
+  const isFavorite = (i) => favorites.find((item) => item.id === i.id && item.source === i.source);
 
   const normalizeProduct = (product, source) => ({
     id: product.id,
@@ -83,7 +84,7 @@ const ProductDetails = ({ type }) => {
                   onClick={(e) => {
                     e.stopPropagation();
                     navigate(`/cart`);
-                    dispatch(addToCart(product))
+                    dispatch(addToCart(product));
                   }}
                   className="text-[14px] md:text-[16px] bg-amber-300 text-white py-[14px]"
                 >
@@ -98,7 +99,7 @@ const ProductDetails = ({ type }) => {
                 className="absolute top-1 right-2 bg-white rounded-full p-1 shadow-sm hover:scale-105 transition-transform"
                 onClick={(e) => {
                   e.stopPropagation();
-                  toggleFavorite(product);
+                  dispatch(toggleFavorite(product));
                 }}
               >
                 <Heart
@@ -127,8 +128,8 @@ const ProductDetails = ({ type }) => {
               {typeof product.price === "number"
                 ? product.price
                 : product.price
-                ? product.price.split(" ")[1].split("*")[0].trim()
-                : "—"}
+                  ? product.price.split(" ")[1].split("*")[0].trim()
+                  : "—"}
               <span className="text-green-700 text-[16px] pl-1.5">27% off</span>
             </h1>
 
@@ -200,8 +201,8 @@ const ProductDetails = ({ type }) => {
                     {typeof product.price === "number"
                       ? product.price
                       : product.price
-                      ? product.price.split(" ")[1].split("*")[0].trim()
-                      : "—"}
+                        ? product.price.split(" ")[1].split("*")[0].trim()
+                        : "—"}
                   </div>
                 </div>
                 <div className=" border-1 border-gray-300 p-3">

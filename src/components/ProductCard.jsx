@@ -1,7 +1,8 @@
 import { Heart, Trash2 } from "lucide-react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useFavorite } from "../context/WishlistContext";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromFavorite, toggleFavorite } from "../store/favoriteSlice";
 
 const ProductCard = ({ item }) => {
   useEffect(() => {
@@ -10,9 +11,12 @@ const ProductCard = ({ item }) => {
     }
   }, []);
   const navigate = useNavigate();
-  const { isFavorite, toggleFavorite, removeFromFavorite } = useFavorite();
   const location = useLocation();
   const isFavoritePage = location.pathname === "/wishlist";
+  const favorites = useSelector((state) => state.favorites.favorites);
+  const isFavorite = (i) =>
+    favorites.find((item) => item.id === i.id && item.source === i.source);
+  const dispatch = useDispatch();
 
   return (
     <div
@@ -23,7 +27,7 @@ const ProductCard = ({ item }) => {
       <div
         className="relative min-w-[20%] h-[150px] lg:h-[200px] xl:h-[250px] pb-5"
         onClick={() => {
-          navigate(`/details/api/${item.id}`);
+          navigate(`/details/${item.source || "api"}/${item.id}`);
         }}
       >
         <img
@@ -35,7 +39,7 @@ const ProductCard = ({ item }) => {
           className="absolute top-1 right-2 bg-white rounded-full p-1 shadow-sm hover:scale-105 transition-transform"
           onClick={(e) => {
             e.stopPropagation();
-            toggleFavorite(item);
+            dispatch(toggleFavorite(item));
           }}
         >
           <Heart
@@ -51,7 +55,7 @@ const ProductCard = ({ item }) => {
         <div
           className="w-full flex flex-col gap-1"
           onClick={() => {
-            navigate(`/details/api/${item.id}`);
+            navigate(`/details/${item.source || "api"}/${item.id}`);
           }}
         >
           <h5 className="line-clamp-1  font-[550] text-[14px] lg:text-[18px] group-hover:text-blue-500 transition-colors duration-300">
@@ -73,7 +77,7 @@ const ProductCard = ({ item }) => {
               {" "}
               <Trash2
                 onClick={() => {
-                  removeFromFavorite(item);
+                  dispatch(removeFromFavorite(item));
                 }}
               />
             </button>
@@ -83,8 +87,8 @@ const ProductCard = ({ item }) => {
               {typeof item.price === "number"
                 ? item.price
                 : item.price
-                ? item.price.split(" ")[1].split("*")[0].trim()
-                : "—"}
+                  ? item.price.split(" ")[1].split("*")[0].trim()
+                  : "—"}
             </h1>
           )}
         </div>

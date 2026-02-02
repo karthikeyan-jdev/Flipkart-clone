@@ -23,12 +23,13 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useFavorite } from "../context/WishlistContext";
 import { useAuth } from "../context/AuthContext";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   let navRef = useRef(null);
   let navigate = useNavigate();
   const [menu, setMenu] = useState(false);
   const [threeDotMenu, setThreeDotMenu] = useState(false);
-  const { favorites } = useFavorite();
+  const favorites = useSelector((state) => state.favorites.favorites);
   const { user, logout } = useAuth();
 
   useEffect(() => {

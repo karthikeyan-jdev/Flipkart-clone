@@ -3,7 +3,7 @@ import loginImg from "../assets/img/login-img.png";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
   const { Signup } = useAuth();
   const [userName, setUserName] = useState([]);
   const [email, setEmail] = useState("");
@@ -91,4 +91,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

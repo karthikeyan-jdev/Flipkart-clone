@@ -19,6 +19,7 @@ import logo from "../assets/img/logo.png";
 import { useAuth } from "../context/AuthContext";
 import { useFavorite } from "../context/WishlistContext";
 import { CgProfile } from "react-icons/cg";
+import { useSelector } from "react-redux";
 
 const NavbarInner = () => {
   const [menu, setMenu] = useState(false);
@@ -26,7 +27,7 @@ const NavbarInner = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const { favorites } = useFavorite();
+  const favorites = useSelector((state) => state.favorites.favorites);
 
   return (
     <div className=" fixed top-0 left-0 w-full z-40 transition-shadow duration-300">

@@ -6,10 +6,13 @@ import { useSelector } from "react-redux";
 const Cart = () => {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart.cart);
+  console.log(cart);
+  
   const hasItems = cart.length > 0;
   return (
     <section className="">
       {hasItems ? (
+        // cart card
         <div className="flex flex-col md:flex-row md:justify-center md:items-start  gap-3.5 p-5 ">
           {/* cart  */}
           <div className="space-y-1">
@@ -68,6 +71,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
+        // cart empty
         <div className=" flex flex-col justify-center items-center gap-3 h-[78vh] bg-white">
           <div className="pr-2.5">
             <img src={emptyCart} alt="your cart is empty " />

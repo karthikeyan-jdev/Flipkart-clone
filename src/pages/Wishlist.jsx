@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import ProductCard from "../components/ProductCard";
-import { useFavorite } from "../context/WishlistContext";
+// import { useFavorite } from "../context/WishlistContext";
 import { useNavigate } from "react-router-dom";
 import emptyWishlist from "../assets/img/emptyWishlist.png";
 import { useAuth } from "../context/AuthContext";
 import Profile from "./Profile";
+import { useSelector } from "react-redux";
 
 const Wishlist = () => {
-  const { favorites } = useFavorite();
+  // const { favorites } = useFavorite();
   const { user } = useAuth();
   const navigate = useNavigate();
-
+  const favorites = useSelector((state) => state.favorites.favorites);
+  const hasfav = favorites.length > 0;
   return (
     <div>
       <section className="flex justify-center sm:p-5">
@@ -25,7 +27,15 @@ const Wishlist = () => {
           <h5 className="font-semibold text-[18px] p-5 pb-3 lg:text-xl lg:p-7 lg:pb-5">
             My Wishlist ({favorites.length})
           </h5>
-          {favorites.length == 0 ? (
+          {hasfav ? (
+            // fav card
+            <div className="bg-white">
+              {favorites.map((item) => (
+                <ProductCard key={item.id} item={item} />
+              ))}
+            </div>
+          ) : (
+            // fav empty
             <div className=" flex flex-col justify-center items-center gap-3 h-[60vh] w-[90vw] md:w-auto bg-white">
               <div className="">
                 <img
@@ -47,12 +57,6 @@ const Wishlist = () => {
               >
                 keep shoping
               </button>{" "}
-            </div>
-          ) : (
-            <div className="bg-white">
-              {favorites.map((item) => (
-                <ProductCard key={item.id} item={item} />
-              ))}
             </div>
           )}
         </div>

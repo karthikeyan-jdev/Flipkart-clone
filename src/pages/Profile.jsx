@@ -13,10 +13,12 @@ import {
 } from "lucide-react";
 import { useFavorite } from "../context/WishlistContext";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
   const { user, logout } = useAuth();
-  const { favorites } = useFavorite();
+  // const { favorites } = useFavorite();
+  const favorites = useSelector((state) => state.favorites.favorites);
   let navigate = useNavigate();
 
   return (
