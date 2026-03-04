@@ -1,8 +1,7 @@
 import React from "react";
-import ProductBanners from "./ProductBanners";
 import Ad from "./Ad";
-import ProductList from "./ProuctContainer";
 import { smartphones } from "../constant/data";
+import ProuctContainer from "./ProuctContainer";
 
 const LocalProduct = () => {
   const ad =
@@ -10,7 +9,7 @@ const LocalProduct = () => {
   return (
     <div className="pb-[10px] xl:flex xl:gap-3 ">
       <div className="w-full xl:w-[80%] md:my-[auto]  md:items-center">
-        <ProductList
+        <ProuctContainer
           headline={"Best deal on smartphones"}
           products={smartphones}
           routerpath={"local"}

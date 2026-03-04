@@ -11,16 +11,20 @@ import {
   Package,
   Tag,
 } from "lucide-react";
-import { useFavorite } from "../context/WishlistContext";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Profile = () => {
   const { user, logout } = useAuth();
-  // const { favorites } = useFavorite();
   const favorites = useSelector((state) => state.favorites.favorites);
   let navigate = useNavigate();
-
+  const handleLogout = () => {
+    const success = logout();
+    if (success) {
+      alert("Logged out!");
+      navigate("/login");
+    }
+  };
   return (
     <div className=" w-[90%] mx-auto space-y-2">
       {/*profile  */}
@@ -76,7 +80,7 @@ const Profile = () => {
           </li>
           {user && (
             <li
-              onClick={logout}
+              onClick={handleLogout}
               className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200  flex gap-2.5 items-center"
             >
               <LogOut size={18} /> <h4>Logout</h4>

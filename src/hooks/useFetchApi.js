@@ -5,34 +5,32 @@ const useFetchApi = (url) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   useEffect(() => {
-    let ismounted = true;
-    
+    const controller = new AbortController(); //mounted/unmounted check
+    const signal = controller.signal;
     setData(null);
     setLoading(true);
     setError("");
-    fetch(url)
+    fetch(url, { signal })
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP error!:${res.status}`);
         return res.json();
       })
-      .then((data) => {
-        if (ismounted) setData(data);
-      })
+      .then((data) => setData(data))
       .catch((err) => {
-        if (ismounted) setError(err.message || "API Error");
+        if (err.name !== "AbortError") setError(err.message || "API Error");
       })
       .finally(() => {
-        if (ismounted) setLoading(false);
+        if (!controller.signal.aborted) {
+          setLoading(false);
+        }
       });
-    return () => {
-      ismounted = false;
-    };
+
+    return () => controller.abort();
   }, [url]);
   return {
     data,
     error,
     loading,
-    status: error ? "error" : loading ? "loading" : data ? "success" : "idle",
   };
 };
 

@@ -3,19 +3,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Heart, ShieldCheck, Tag, TicketPercent } from "lucide-react";
 import useFetchApi from "../hooks/useFetchApi";
 import Loading from "../components/Loading";
-import SmartPhonesList from "../components/ProuctContainer";
 import { smartphones } from "../constant/data";
 import { dealsData } from "../constant/deals";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../store/cartSlice";
 import { toggleFavorite } from "../store/favoriteSlice";
+import ProuctContainer from "../components/ProuctContainer";
 
 const ProductDetails = ({ type }) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.favorites);
-  const isFavorite = (i) => favorites.find((item) => item.id === i.id && item.source === i.source);
+  const isFavorite = (i) => favorites.some((item) => item.id === i.id && item.source === i.source);
 
   const normalizeProduct = (product, source) => ({
     id: product.id,
@@ -229,7 +229,7 @@ const ProductDetails = ({ type }) => {
         </div>
       </div>
       <div className="py-4 hidden lg:block">
-        <SmartPhonesList
+        <ProuctContainer
           headline={"Similer Products"}
           products={smartphones}
           routerpath={"local"}

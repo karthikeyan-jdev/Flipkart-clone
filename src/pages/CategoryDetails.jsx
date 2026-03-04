@@ -6,7 +6,7 @@ import { innerProductCategorys } from "../constant/data";
 
 const CategoryProducts = () => {
   const { data, error, loading } = useFetchApi(
-    "https://fakestoreapi.com/products",
+    `https://fakestoreapi.com/products`,
   );
 
   if (error) return <p className="text-red-500">{error}</p>;
@@ -25,13 +25,15 @@ const CategoryProducts = () => {
         })}
       </div>
       {/* main contant */}
-      <div className="w-full bg-white">
-        {loading ? (
-          <Loading />
-        ) : (
-          Array.isArray(data) &&
-          data.map((item) => <ProductCard key={item.id} item={item} />)
-        )}
+      <div className="">
+        <div className="w-full bg-white">
+          {loading ? (
+            <Loading />
+          ) : (
+            Array.isArray(data) &&
+            data.map((item) => <ProductCard key={item.id} item={item} />)
+          )}
+        </div>
       </div>
     </section>
   );

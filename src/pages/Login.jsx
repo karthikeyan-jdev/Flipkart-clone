@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import loginImg from "../assets/img/login-img.png";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -14,11 +14,12 @@ const Login = () => {
     const success = login(email, password);
     if (success) {
       alert("Logged in!");
+      navigate("/");
     } else {
       alert("Login failed!");
     }
-    navigate("/");
   };
+  console.log("Login rendered");
   return (
     <div className="flex justify-center items-center h-[88vh] sm:h-[86vh] bg-gray-200">
       {" "}
@@ -54,7 +55,7 @@ const Login = () => {
             />
 
             <input
-              type="password"
+              type="current-password"
               placeholder="Passward"
               className="border-b border-gray-300 w-full p-1 outline-none"
               value={password}
@@ -72,7 +73,10 @@ const Login = () => {
           </form>
           <div className="text-primary text-center text-[16px] sm:text-[12px] pb-12">
             New to Flipkart?{" "}
-            <a href="/signup" className="">
+            <a
+              href="/signup"
+              className="underline font-semibold hover:text-primary/50"
+            >
               Create an account
             </a>
           </div>

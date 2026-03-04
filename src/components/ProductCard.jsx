@@ -15,19 +15,19 @@ const ProductCard = ({ item }) => {
   const isFavoritePage = location.pathname === "/wishlist";
   const favorites = useSelector((state) => state.favorites.favorites);
   const isFavorite = (i) =>
-    favorites.find((item) => item.id === i.id && item.source === i.source);
+    favorites.some((item) => item.id === i.id && item.source === i.source);
   const dispatch = useDispatch();
 
   return (
     <div
-      className="group flex gap-3 border-gray-200 rounded-md p-3
+      className=" group flex gap-3 border-gray-200 rounded-md p-3
                shadow-sm hover:shadow-md transition-shadow duration-300 h-[200px] lg:h-[240px]"
     >
       {/*box-1 images + favorite */}
       <div
         className="relative min-w-[20%] h-[150px] lg:h-[200px] xl:h-[250px] pb-5"
         onClick={() => {
-          navigate(`/details/${item.source || "api"}/${item.id}`);
+          navigate(`/details/${item.source}/${item.id}`);
         }}
       >
         <img

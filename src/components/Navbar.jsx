@@ -43,6 +43,13 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  const handleLogout = () => {
+    const success = logout();
+    if (success) {
+      alert("Logged out!");
+      navigate("/login");
+    }
+  };
   return (
     <section className="relative">
       <div
@@ -111,7 +118,9 @@ const Navbar = () => {
             <div className="md:relative flex items-center gap-1.5 ">
               <button
                 className="text-[16px] text-gray-600  tracking-tight font-[550] cursor-pointer"
-                onClick={() => (user ? undefined : navigate("/login"))}
+                onClick={() =>
+                  user ? navigate("/profile") : navigate("/login")
+                }
               >
                 {user
                   ? user?.userName || user?.email?.split("@")[0] || "User"
@@ -176,7 +185,7 @@ const Navbar = () => {
                 </li>
                 {user && (
                   <li
-                    onClick={logout}
+                    onClick={handleLogout}
                     className="hover:bg-gray-100 min-w-max cursor-pointer px-4 pr-9 py-[12px] transition-colors duration-200  flex gap-2.5 items-center"
                   >
                     <LogOut size={18} /> <h4>Logout</h4>

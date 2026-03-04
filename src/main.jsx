@@ -6,6 +6,7 @@ import { FavoriteProvider } from "./context/WishlistContext";
 import { AuthProvider } from "./context/AuthContext";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
