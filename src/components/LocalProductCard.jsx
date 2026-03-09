@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LocalProductCard = ({ item,routerpath }) => {
@@ -26,7 +26,8 @@ const LocalProductCard = ({ item,routerpath }) => {
           <img
             src={item?.image || "/placeholder.png"}
             alt={item?.title || "Product image"}
-            className="h-[48px] sm:h-[65px] md:h-[90px] lg:h-[132px] w-[42px] sm:w-[70px] md:w-40 object-contain transition-transform lg:group-hover:scale-105"
+            className="h-[48px] sm:h-[65px] md:h-[90px] lg:h-[132px] w-[42px] sm:w-[70px] md:w-40 object-contain transition-transform 
+            lg:group-hover:scale-105"
           />
         </div>
         <div className="w-full !px-5 md:text-center xl:mb-[50px!important] md:mt-[12px!important]">

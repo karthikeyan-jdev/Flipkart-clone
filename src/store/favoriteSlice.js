@@ -11,7 +11,7 @@ const storedFavorites = localStorage.getItem("favorites")
 const favoriteSlice = createSlice({
   name: "favorites",
   initialState: { favorites: storedFavorites },
-  reducers: {
+  reducers: { 
     // addToFavorite
     addToFavorite(state, action) {
       const item = action.payload;
@@ -33,10 +33,13 @@ const favoriteSlice = createSlice({
     },
     // toggleFavorite
     toggleFavorite: (state, action) => {
-      const item = action.payload;
+      // arqument passed when dispatching the action (it must be toggle item)
+      const item = action.payload; 
+      // Check if the item is already in favorites array
       const isFav = state.favorites.some(
         (fav) => fav.id === item.id && fav.source === item.source,
       );
+      // 
       if (isFav) {
         state.favorites = state.favorites.filter(
           (p) => p.id !== item.id || p.source !== item.source,

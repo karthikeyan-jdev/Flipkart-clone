@@ -272,6 +272,7 @@ export const productbBannerGrid = [
       "https://rukminim2.flixcart.com/fk-p-flap/1040/560/image/c5d0453a8ad30643.jpg?q=60",
   },
 ];
+
 export const offers = [
   {
     id: 1,

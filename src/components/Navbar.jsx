@@ -5,7 +5,6 @@ import { IoReorderThreeOutline } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import {
-  ArrowLeft,
   Bell,
   CirclePoundSterling,
   DiamondPlus,
@@ -21,7 +20,6 @@ import {
   Tag,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { useFavorite } from "../context/WishlistContext";
 import { useAuth } from "../context/AuthContext";
 import { useSelector } from "react-redux";
 const Navbar = () => {

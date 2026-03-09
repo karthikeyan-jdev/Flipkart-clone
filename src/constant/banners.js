@@ -15,7 +15,6 @@ export const banner1 = [
       "https://rukminim2.flixcart.com/fk-p-flap/520/280/image/e8b5fedc1c57580a.jpg?q=90",
   },
 ];
-
 export const banner2 = [
   {
     id: 1,
