@@ -20,12 +20,12 @@ const useFetchApi = (url) => {
         if (err.name !== "AbortError") setError(err.message || "API Error");
       })
       .finally(() => {
-        if (!controller.signal.aborted) {
+        if (!signal.aborted) { 
           setLoading(false);
         }
       });
 
-    return () => controller.abort();
+    return () => controller.abort(); 
   }, [url]);
   return {
     data,

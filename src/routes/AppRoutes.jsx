@@ -15,7 +15,7 @@ import Signup from "../pages/Signup";
 import LocalProduct from "../components/LocalProduct";
 import CategoryProducts from "../pages/CategoryDetails";
 
-const AppRouter = createBrowserRouter([
+ export const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
@@ -91,6 +91,4 @@ const AppRouter = createBrowserRouter([
   },
 ]);
 
-export default function AppProvider() {
-  return <RouterProvider router={AppRouter} />;
-}
+

@@ -34,7 +34,7 @@ const ProductGrid = ({ headline, data, start, end, offers=[] }) => {
                 <div className="flex justify-center flex-1 p-5 md:pb-3">
                   <img
                     src={item.image}
-                    alt={item.title.split(" ")[0]}
+                    alt={item.title?.split(" ")[0]}
                     className="sm:h-[150px] w-full object-contain"
                   />
                 </div>

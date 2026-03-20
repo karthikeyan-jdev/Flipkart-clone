@@ -33,13 +33,11 @@ const favoriteSlice = createSlice({
     },
     // toggleFavorite
     toggleFavorite: (state, action) => {
-      // arqument passed when dispatching the action (it must be toggle item)
       const item = action.payload; 
-      // Check if the item is already in favorites array
       const isFav = state.favorites.some(
         (fav) => fav.id === item.id && fav.source === item.source,
       );
-      // 
+      // Toggle the favorite status
       if (isFav) {
         state.favorites = state.favorites.filter(
           (p) => p.id !== item.id || p.source !== item.source,

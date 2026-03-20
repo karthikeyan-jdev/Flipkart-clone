@@ -5,7 +5,7 @@ import favoriteReducer from "./favoriteSlice";
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
-    favorites: favoriteReducer,
+    favorites: favoriteReducer, 
   },
 });
 

@@ -7,6 +7,8 @@ import { banner2 } from "../constant/banners";
 import ProductList from "./ProuctContainer";
 import { dealsData } from "../constant/deals";
 import { offers } from "../constant/data";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const ProductGridSection = () => {
   const { data, error, loading } = useFetchApi(
